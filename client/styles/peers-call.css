@@ -1,0 +1,25 @@
+#VC {
+  width: 20vw;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border: 2px solid #6c6218;
+  border-right: none;
+  border-bottom: none;
+  z-index: 2;
+}
+
+#videos {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+video {
+  max-width: 100%;
+  width: 200px;
+  border: 2px solid #6c6218;
+  border-radius: 6px;
+  margin: 2px;
+}
