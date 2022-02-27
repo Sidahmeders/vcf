@@ -5,6 +5,7 @@ import { roomListeners } from '../constant/listeners.js'
 import { errorNotification } from '../notifications/index.js'
 import displayRoomData from './displayRoomData/index.js'
 import addDraggedCard from './addDraggedCard.js'
+import addDroppedCards from './addDroppedCards.js'
 import removeDroppedCard from './removeDroppedCard.js'
 import updateOnlineStatus from './updateOnlineStatus.js'
 import updateTurnToPickStatus from './updateTurnToPickStatus.js'
@@ -20,6 +21,7 @@ socket.on(roomListeners.rooms_joined, displayRoomData)
 socket.on(roomListeners.rooms_error, errorNotification)
 
 socket.on(roomListeners.cards_dragged, addDraggedCard)
+socket.on(roomListeners.peers_dropped_card, addDroppedCards)
 socket.on(roomListeners.cards_dropped, removeDroppedCard)
 
 socket.on(roomListeners.peers_disconnect, updateOnlineStatus)

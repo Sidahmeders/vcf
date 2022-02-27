@@ -1,11 +1,11 @@
 module.exports = {
   roomsCollection: {
-    onlinePlayers: {},
     testRoom: {
       isReady: false,
       isStarted: false,
       password: '1234',
       cardsDeck: [],
+      droppedCards: [],
       players: {
         yousef: {
           cards: [],

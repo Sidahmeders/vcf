@@ -5,6 +5,7 @@ export const roomListeners = {
   peers_trunToPick: 'peers:trunToPick',
   peers_connect: 'peers:connect',
   peers_disconnect: 'peers:disconnect',
+  peers_dropped_card: 'peers:dropped:card',
   cards_dropped: 'cards:dropped',
   cards_dragged: 'cards:dragged',
 }

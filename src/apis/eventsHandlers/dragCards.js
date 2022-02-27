@@ -15,8 +15,8 @@ module.exports = ({ wsEventEmitter, events }) => {
       const playersStatus = getPlayersStatus(roomName)
       wsEventEmitter.broadcastToRoom(roomName, events.peersTrunToPick, playersStatus)
 
-      const playerData = getPlayerRoomData(roomName, username)
-      wsEventEmitter.emit(events.cardsDragged, playerData)
+      const { playerCards } = getPlayerRoomData(roomName, username)
+      wsEventEmitter.emit(events.cardsDragged, playerCards)
     } catch (err) {
       wsEventEmitter.emit(events.roomsError, err.message)
       console.error(err)

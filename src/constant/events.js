@@ -7,4 +7,5 @@ module.exports = {
   peersConnect: 'peers:connect',
   peersDisconnect: 'peers:disconnect',
   peersTrunToPick: 'peers:trunToPick',
+  peersDroppedCard: 'peers:dropped:card',
 }
