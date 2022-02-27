@@ -1,10 +1,11 @@
 import displayPlayerCards from './displayPlayerCards.js'
-import deckUIHandler from './deckUIHandler.js'
+import hiddenDeck from './hiddenDeck.js'
 import displayPeersNames from './displayPeersNames.js'
 
 export default function displayRoomData(userData) {
-  const { playerCards, players, cards } = userData
+  const { playerCards, players } = userData
+  console.log(userData)
+  hiddenDeck()
   displayPlayerCards(playerCards)
-  deckUIHandler(cards)
   displayPeersNames(players)
 }
