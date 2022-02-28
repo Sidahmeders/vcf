@@ -11,3 +11,11 @@
   justify-content: space-around;
   align-items: center;
 }
+
+#dropped-cards .player-card.swap-card {
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
