@@ -1,9 +1,9 @@
 #dropped-cards {
   position: absolute;
-  top: 0;
-  right: 1%;
-  min-width: 150px;
-  height: 205px;
+  bottom: 0;
+  left: 21vw;
+  min-width: 145px;
+  height: 200px;
   background: #fff6;
   border: 2px solid white;
   border-radius: 5px;
@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-#dropped-cards .player-card.swap-card {
+#dropped-cards .player-card {
   user-select: none;
   -webkit-user-drag: none;
   -moz-user-select: none;

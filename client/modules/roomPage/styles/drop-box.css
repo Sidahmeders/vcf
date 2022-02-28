@@ -5,12 +5,13 @@
 #drop-box {
   padding: 0;
   margin: 0;
-  width: 80vw;
-  height: 120px;
+  width: 20vw;
+  height: 30vh;
   position: absolute;
   bottom: 0;
   background-color: #463b88d5;
   border-top: 2px solid #c7b40d;
+  border-right: 2px solid #c7b40d;
   display: flex;
   justify-content: center;
   align-items: center;

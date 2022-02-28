@@ -12,21 +12,8 @@
 .card {
   position: absolute;
   bottom: 0;
-  left: 69%;
-}
-
-.player-card {
-  z-index: 9;
-  position: relative;
-}
-
-.player-card span {
-  position: absolute;
-  bottom: 0;
-  width: 105%;
-  height: 12px;
-  background: #fff6;
-  transform: translateY(10px);
+  left: 33vw;
+  box-shadow: 1px 1px 1px 4px #ddd6;
 }
 
 .hidden {
@@ -36,6 +23,13 @@
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  transition: 1s;
+}
+
+.hidden:hover {
+  padding: 2px;
+  transform: translate(0, -3px);
+  box-shadow: 1px 1px 1px 6px #ddd6;
 }
 
 .player-card.invisible {

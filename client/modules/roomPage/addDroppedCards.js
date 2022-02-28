@@ -7,7 +7,7 @@ export default function addDroppedCards(droppedCards = []) {
   const card = droppedCards.pop()
   if (!card) return
 
-  cardElement.className = `player-card swap-card ${card.split('+')[0]}`
+  cardElement.className = `player-card ${card.split('+')[0]}`
   cardElement.setAttribute('card-id', card)
   cardElement.addEventListener('dragover', dragOver)
   cardElement.addEventListener('dragleave', dragLeave)
