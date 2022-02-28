@@ -4,7 +4,6 @@ import displayPeersNames from './displayPeersNames.js'
 
 export default function displayRoomData(userData) {
   const { playerCards, players } = userData
-  console.log(userData)
   hiddenDeck()
   displayPlayerCards(playerCards)
   displayPeersNames(players)

@@ -13,6 +13,7 @@ module.exports = (ws, socket) => {
   wsEventEmitter.on(listeners.rooms_join, wsEventHandler.joinRoom)
   wsEventEmitter.on(listeners.cards_drag, wsEventHandler.dragCards)
   wsEventEmitter.on(listeners.cards_drop, wsEventHandler.dropCards)
+  wsEventEmitter.on(listeners.cards_swap, wsEventHandler.swapCards)
 
   wsEventEmitter.on(listeners.peers_join, wsEventHandler.peerJoin)
   wsEventEmitter.on(listeners.peers_message, wsEventHandler.peerMessage)

@@ -8,6 +8,7 @@ export const roomListeners = {
   peers_dropped_card: 'peers:dropped:card',
   cards_dropped: 'cards:dropped',
   cards_dragged: 'cards:dragged',
+  cards_swapped: 'cards:swapped',
 }
 
 export const webrtcListeners = {

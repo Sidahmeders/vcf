@@ -9,4 +9,5 @@ export const roomEvents = {
   rooms_data: 'rooms:data',
   cards_drag: 'cards:drag',
   cards_drop: 'cards:drop',
+  cards_swap: 'cards:swap',
 }

@@ -9,6 +9,7 @@ import addDroppedCards from './addDroppedCards.js'
 import removeDroppedCard from './removeDroppedCard.js'
 import updateOnlineStatus from './updateOnlineStatus.js'
 import updateTurnToPickStatus from './updateTurnToPickStatus.js'
+import updateSwappedCards from './updateSwappedCards.js'
 
 document.addEventListener('DOMContentLoaded', fetchRoomNameData)
 
@@ -21,8 +22,9 @@ socket.on(roomListeners.rooms_joined, displayRoomData)
 socket.on(roomListeners.rooms_error, errorNotification)
 
 socket.on(roomListeners.cards_dragged, addDraggedCard)
-socket.on(roomListeners.peers_dropped_card, addDroppedCards)
 socket.on(roomListeners.cards_dropped, removeDroppedCard)
+socket.on(roomListeners.cards_swapped, updateSwappedCards)
+socket.on(roomListeners.peers_dropped_card, addDroppedCards)
 
 socket.on(roomListeners.peers_disconnect, updateOnlineStatus)
 socket.on(roomListeners.peers_connect, updateOnlineStatus)

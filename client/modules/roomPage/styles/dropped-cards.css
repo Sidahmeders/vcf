@@ -2,9 +2,9 @@
   position: absolute;
   top: 0;
   right: 1%;
-  width: 20%;
-  min-width: 120px;
-  height: 200px;
+  min-width: 150px;
+  height: 205px;
+  background: #fff6;
   border: 2px solid white;
   border-radius: 5px;
   display: flex;

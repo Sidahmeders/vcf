@@ -5,5 +5,6 @@ module.exports = {
   peers_message: 'peers:message',
   cards_drag: 'cards:drag',
   cards_drop: 'cards:drop',
+  cards_swap: 'cards:swap',
   disconnect: 'disconnect',
 }
