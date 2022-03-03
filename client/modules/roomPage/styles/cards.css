@@ -1,4 +1,4 @@
-.card,
+.hidden-card,
 .player-card {
   background-image: url(../../../asset/cards.png);
   background-size: 2004px 800px;
@@ -9,24 +9,25 @@
   border-radius: 10px;
 }
 
-.card {
-  position: absolute;
-  bottom: 0;
-  left: 33vw;
-  box-shadow: 1px 1px 1px 4px #ddd6;
-}
-
-.hidden {
-  background-position: -1862px -1px !important;
+.player-card.drag-disable,
+.hidden-card {
   user-select: none;
   -webkit-user-drag: none;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+.hidden-card {
+  position: absolute;
+  bottom: 0;
+  left: 33vw;
+  box-shadow: 1px 1px 1px 4px #ddd6;
+  background-position: -1862px -1px !important;
   transition: 1s;
 }
 
-.hidden:hover {
+.hidden-card:hover {
   padding: 2px;
   transform: translate(0, -3px);
   box-shadow: 1px 1px 1px 6px #ddd6;

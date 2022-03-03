@@ -1,5 +1,6 @@
-import './dropBoxHandler.js'
 import '../peers-call/index.js'
+import './cardsDropBox.js'
+import './addWinReadyPeers.js'
 
 import { roomListeners } from '../constant/listeners.js'
 import { errorNotification } from '../notifications/index.js'

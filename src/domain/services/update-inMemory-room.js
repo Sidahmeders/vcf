@@ -17,7 +17,7 @@ module.exports = ({ roomsDB, InMemoryGames, Player, createDeck, shuffleDeck }) =
       }
 
       // check if the room is full and give permission to one player to start
-      if (roomSize == 3 && index === 0 && !isReady) {
+      if (roomSize >= 3 && index === 0 && !isReady) {
         roomPlayers[username].turnToPick = true
         targetRoom.isReady = true
       }

@@ -1,0 +1,25 @@
+#win-ready-peers {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 78vw;
+  height: 34vh;
+  border: 2px solid white;
+  border-top: 0;
+  border-left: 0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+  padding-top: 75px;
+}
+
+#win-ready-peers .player-card {
+  background-size: 2004px 800px;
+  width: 120px;
+  height: 175px;
+  z-index: 2;
+  border: 1px solid #333;
+  border-radius: 10px;
+}

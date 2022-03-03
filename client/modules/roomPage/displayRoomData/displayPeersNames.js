@@ -10,9 +10,11 @@ export default function displayPeersNames(players) {
 
       const onlineStatusEl = peerStatusElement('peername-online-status')
       const turnStatusEl = peerStatusElement('peername-turn-status')
+      const winReadyStatusEl = peerStatusElement('peername-win-status')
 
       peerElement.appendChild(onlineStatusEl)
       peerElement.appendChild(turnStatusEl)
+      peerElement.appendChild(winReadyStatusEl)
       peersContainer.appendChild(peerElement)
     }
   }

@@ -1,20 +1,25 @@
 #peers-container {
+  width: 24vw;
   display: flex;
   border: 2px solid gray;
-  border-radius: 5px 0 5px 0;
+  border-radius: 0 5px 5px 0;
   border-top: 0;
   border-left: 0;
-  padding: 10px;
+  padding: 5px;
   position: fixed;
   top: 0;
   left: 0;
 }
 
 #peers-container .peername {
-  font-size: 20px;
+  width: 33%;
+  min-width: 85px;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  overflow: hidden;
   color: whitesmoke;
-  padding: 5px 15px;
-  margin: 0 10px;
+  padding: 10px 5px;
+  margin: 0 5px;
   border: 1px solid gray;
   border-radius: 5px;
   position: relative;
@@ -26,16 +31,39 @@
   position: absolute;
   background: gray;
   border-radius: 50%;
-  top: 34%;
-  right: -5%;
+  top: 30%;
+  right: 0;
 }
 
 #peers-container .peername-turn-status {
   width: 100%;
-  height: 8px;
+  height: 5px;
   position: absolute;
   background: #ddd;
   border-radius: 5px;
-  bottom: -15%;
+  bottom: 0;
   left: 0;
+}
+
+#peers-container .peername-win-status {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  z-index: -1;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
+}
+
+#peers-container .peername-win-status.win-ready {
+  animation: winReady 1s ease-in-out infinite alternate;
+}
+
+@keyframes winReady {
+  0% {
+    background-color: inherit;
+  }
+  100% {
+    background-color: darkred;
+  }
 }
