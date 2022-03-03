@@ -14,7 +14,7 @@ function resetPlayerCardsStatus() {
 }
 
 function setPlayerCardsStatus(suitesMap) {
-  const colors = ['#2f69', '#f359']
+  const colors = ['#3f7', '#26f']
   suitesMap.forEach((suite, index) => {
     const bgColor = colors[index]
 
@@ -33,7 +33,7 @@ function setPlayerCardsStatus(suitesMap) {
 
 const cardsFlag = {
   addValidFlag: (cardElement, color) => {
-    cardElement.innerHTML = `<span style="background:${color};"></span>`
+    cardElement.innerHTML = `<span class="valid-flag" style="background:${color};"></span>`
   },
   removeValidFlag: (cardElement) => (cardElement.innerHTML = ''),
 }

@@ -7,6 +7,7 @@
   z-index: 2;
   border: 1px solid #333;
   border-radius: 10px;
+  position: relative;
 }
 
 .player-card.drag-disable,
@@ -44,6 +45,15 @@
 
 .player-card.hovered {
   border: 2px solid orange;
+}
+
+.player-card .valid-flag {
+  display: block;
+  width: 105%;
+  height: 10px;
+  position: absolute;
+  bottom: -5%;
+  left: 0;
 }
 
 .SA {

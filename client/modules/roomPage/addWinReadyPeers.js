@@ -1,7 +1,7 @@
 export default function addWinReadyPeers(
   winReadyPlayers = {
     sodium: {
-      cards: ['CK+1', 'C3+1', 'DJ+1', 'C2+2', 'D6+2', 'H7+1', 'ST+1', 'CQ+2', 'D8+2', 'H6+2', 'C4+2', 'D4+2', 'D8+1'],
+      cards: ['DT+1', 'DJ+1', 'DQ+1', 'DK+1', 'C3+1', 'C4+1', 'C5+1', 'H2+1', 'C2+1', 'C2+1', 'S7+1', 'S8+1', 'S9+1'],
     },
     kaiba: {
       cards: ['HT+2', 'C3+1', 'D9+2', 'D8+1', 'D7+1', 'CT+2', 'DT+2'],
