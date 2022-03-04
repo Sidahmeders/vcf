@@ -1,4 +1,4 @@
-import { roomEvents } from '../constant/events.js'
+import { roomEvents } from '../../constant/events.js'
 
 function cardsDropBox() {
   const dropBoxElement = document.getElementById('drop-box')

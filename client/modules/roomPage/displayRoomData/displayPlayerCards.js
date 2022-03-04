@@ -1,4 +1,4 @@
-import addDragableEvents from '../addDragableEvents.js'
+import addDragableEvents from '../utils/addDragableEvents.js'
 
 export default function displayPlayerCards(playerCards) {
   const playerElement = document.getElementById('local-player')

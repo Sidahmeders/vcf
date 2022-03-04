@@ -1,5 +1,5 @@
-import getPlayerCards from './utils/getPlayerCards.js'
-import suiteValidator from './utils/suiteValidator/index.js'
+import getPlayerCards from './getPlayerCards.js'
+import suiteValidator from './suiteValidator/index.js'
 
 export default async function updateSuitesStatus() {
   resetPlayerCardsStatus()

@@ -1,6 +1,6 @@
 import getPlayerCards from './utils/getPlayerCards.js'
-import addDragableEvents from './addDragableEvents.js'
-import updateSuitesStatus from './updateSuiteStatus.js'
+import addDragableEvents from './utils/addDragableEvents.js'
+import updateSuiteStatus from './utils/updateSuiteStatus.js'
 
 export default function addDraggedCard(playerCards) {
   const oldPlayerCards = getPlayerCards()
@@ -17,5 +17,5 @@ export default function addDraggedCard(playerCards) {
   addDragableEvents(cardElement)
   playerElement.appendChild(cardElement)
 
-  updateSuitesStatus()
+  updateSuiteStatus()
 }

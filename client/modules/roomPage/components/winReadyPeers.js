@@ -1,4 +1,4 @@
-export default function addWinReadyPeers(
+export default function winReadyPeers(
   winReadyPlayers = {
     sodium: {
       cards: ['DT+1', 'DJ+1', 'DQ+1', 'DK+1', 'C3+1', 'C4+1', 'C5+1', 'H2+1', 'C2+1', 'C2+1', 'S7+1', 'S8+1', 'S9+1'],
@@ -68,4 +68,4 @@ function splitCards(cards) {
   return subArrays
 }
 
-addWinReadyPeers()
+winReadyPeers()

@@ -1,4 +1,4 @@
-import updateSuitesStatus from './updateSuiteStatus.js'
+import updateSuiteStatus from './updateSuiteStatus.js'
 
 export default function addDragableEvents(cardElement) {
   cardElement.addEventListener('dragstart', dragStart)
@@ -47,5 +47,5 @@ function dragDrop() {
   roomState.pickedCardElement.setAttribute('card-id', this.getAttribute('card-id'))
   this.setAttribute('card-id', roomState.cardId)
 
-  updateSuitesStatus()
+  updateSuiteStatus()
 }
