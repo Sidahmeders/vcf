@@ -1,15 +1,10 @@
-import addDragableEvents from '../utils/addDragableEvents.js'
+import { CardElement } from '../components/index.js'
 
 export default function displayPlayerCards(playerCards) {
   const playerElement = document.getElementById('local-player')
 
   for (let card of playerCards) {
-    const cardElement = document.createElement('div')
-    cardElement.className = `player-card ${card.split('+')[0]}`
-    cardElement.setAttribute('card-id', card)
-    cardElement.setAttribute('draggable', true)
-    addDragableEvents(cardElement)
-
+    const cardElement = CardElement(card, true)
     playerElement.appendChild(cardElement)
   }
 }

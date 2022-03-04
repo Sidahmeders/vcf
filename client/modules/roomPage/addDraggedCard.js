@@ -1,5 +1,5 @@
+import { CardElement } from './components/index.js'
 import getPlayerCards from './utils/getPlayerCards.js'
-import addDragableEvents from './utils/addDragableEvents.js'
 import updateSuiteStatus from './utils/updateSuiteStatus.js'
 
 export default function addDraggedCard(playerCards) {
@@ -8,14 +8,7 @@ export default function addDraggedCard(playerCards) {
   if (!targetCard) return
 
   const playerElement = document.getElementById('local-player')
-  const cardElement = document.createElement('div')
-
-  cardElement.className = `player-card ${targetCard.split('+')[0]}`
-  cardElement.setAttribute('card-id', targetCard)
-  cardElement.draggable = true
-
-  addDragableEvents(cardElement)
+  const cardElement = CardElement(targetCard, true)
   playerElement.appendChild(cardElement)
-
   updateSuiteStatus()
 }

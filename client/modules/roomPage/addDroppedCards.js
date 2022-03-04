@@ -1,18 +1,16 @@
+import { CardElement } from './components/index.js'
 import { roomEvents } from '../constant/events.js'
 
 export default function addDroppedCards(droppedCards = []) {
   const droppedCardsElement = document.getElementById('dropped-cards')
   droppedCardsElement.innerHTML = ''
-  const cardElement = document.createElement('div')
   const card = droppedCards.pop()
   if (!card) return
 
-  cardElement.className = `player-card drag-disable ${card.split('+')[0]}`
-  cardElement.setAttribute('card-id', card)
+  const cardElement = CardElement(card, false)
   cardElement.addEventListener('dragover', dragOver)
   cardElement.addEventListener('dragleave', dragLeave)
   cardElement.addEventListener('drop', dragDrop)
-
   droppedCardsElement.appendChild(cardElement)
 }
 

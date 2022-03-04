@@ -1,5 +1,5 @@
+import { CardElement } from './components/index.js'
 import getPlayerCards from './utils/getPlayerCards.js'
-import addDragableEvents from './utils/addDragableEvents.js'
 import updateSuiteStatus from './utils/updateSuiteStatus.js'
 
 export default function updateSwappedCards({ playerCards, droppedCards }) {
@@ -7,12 +7,7 @@ export default function updateSwappedCards({ playerCards, droppedCards }) {
   const cardToAdd = String(playerCards.filter((x) => !oldPlayerCards.includes(x)))
   const cardToRemove = droppedCards.pop()
 
-  const cardElement = document.createElement('div')
-  cardElement.className = `player-card ${cardToAdd.split('+')[0]}`
-  cardElement.setAttribute('card-id', cardToAdd)
-  cardElement.draggable = true
-  addDragableEvents(cardElement)
-
+  const cardElement = CardElement(cardToAdd, true)
   document.getElementById('local-player').appendChild(cardElement)
   document.querySelectorAll(`[card-id="${cardToRemove}"]`)[0].remove()
 

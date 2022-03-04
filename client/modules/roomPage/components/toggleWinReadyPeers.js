@@ -1,5 +1,5 @@
 export default function createToggleWinReadyPeers() {
-  // TODO: NOT APPROPRIATE
+  // FIXME: NOT APPROPRIATE
   return function ToggleWinReadyPeers() {
     setTimeout(() => {
       const peersStatusContainer = document.getElementById('peers-status-container').childNodes
