@@ -40,11 +40,6 @@ function groupPlayerCards(playerName, playerCards) {
   for (let handSuite of playerSuites) {
     const handSuiteElement = document.createElement('div')
     handSuiteElement.className = 'hand-suite'
-    handSuiteElement.style = `
-      display: flex;
-      border: 2px solid red;
-      border-radius: 5px;
-    `
 
     handSuite.forEach((card) => {
       const cardElement = document.createElement('div')
@@ -72,30 +67,5 @@ function splitCards(cards) {
   }
   return subArrays
 }
-
-function handlePeersToggle() {
-  setTimeout(() => {
-    const peersContainer = document.getElementById('peers-container').childNodes
-    for (let peerNode of peersContainer) {
-      peerNode.onclick = toggleWinReadyPeer
-    }
-  }, 1000)
-}
-
-function toggleWinReadyPeer() {
-  const peersContainer = document.getElementById('peers-container').childNodes
-  const peerName = this.id
-  const winReadyPeers = document.getElementById('win-ready-peers').childNodes
-  winReadyPeers.forEach((node) => {
-    if (node.id === peerName) node.classList.remove('hidden')
-    else node.classList.add('hidden')
-  })
-
-  peersContainer.forEach((node) => node.classList.remove('focused'))
-  this.classList.add('focused')
-  this.classList.remove('hidden')
-}
-
-handlePeersToggle()
 
 addWinReadyPeers()

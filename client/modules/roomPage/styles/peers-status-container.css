@@ -1,4 +1,4 @@
-#peers-container {
+#peers-status-container {
   width: 24vw;
   display: flex;
   border: 2px solid gray;
@@ -12,7 +12,7 @@
   z-index: 9;
 }
 
-#peers-container .peername {
+#peers-status-container .peername {
   width: 33%;
   min-width: 85px;
   font-size: 15px;
@@ -26,15 +26,15 @@
   position: relative;
 }
 
-#peers-container .peername:hover {
+#peers-status-container .peername:hover {
   cursor: pointer;
 }
 
-#peers-container .peername.focused {
+#peers-status-container .peername.focused {
   border: 2px solid orange;
 }
 
-#peers-container .peername-online-status {
+#peers-status-container .peername-online-status {
   width: 13px;
   height: 13px;
   position: absolute;
@@ -44,7 +44,7 @@
   right: 0;
 }
 
-#peers-container .peername-turn-status {
+#peers-status-container .peername-turn-status {
   width: 100%;
   height: 5px;
   position: absolute;
@@ -54,7 +54,7 @@
   left: 0;
 }
 
-#peers-container .peername-win-status {
+#peers-status-container .peername-win-status {
   width: 100%;
   height: 30px;
   position: absolute;
@@ -64,7 +64,7 @@
   left: 0;
 }
 
-#peers-container .peername-win-status.win-ready {
+#peers-status-container .peername-win-status.win-ready {
   animation: winReady 1s ease-in-out infinite alternate;
 }
 

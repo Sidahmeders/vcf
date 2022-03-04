@@ -1,6 +1,6 @@
 export default function displayPeersNames(players) {
-  const peersContainer = document.getElementById('peers-container')
-  peersContainer.innerHTML = ''
+  const peersStatusContainer = document.getElementById('peers-status-container')
+  peersStatusContainer.innerHTML = ''
 
   for (let peerName of players) {
     if (peerName !== localUserName) {
@@ -16,7 +16,7 @@ export default function displayPeersNames(players) {
       peerElement.appendChild(onlineStatusEl)
       peerElement.appendChild(turnStatusEl)
       peerElement.appendChild(winReadyStatusEl)
-      peersContainer.appendChild(peerElement)
+      peersStatusContainer.appendChild(peerElement)
     }
   }
 }

@@ -2,7 +2,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 78vw;
+  width: 80vw;
   height: 34vh;
   border: 2px solid white;
   border-top: 0;
@@ -17,12 +17,17 @@
 
 #win-ready-peers .peer-suite-container {
   display: flex;
-  margin: 0 20px;
-  padding: 0 20px;
 }
 
 #win-ready-peers .peer-suite-container.hidden {
   display: none;
+}
+
+#win-ready-peers .hand-suite {
+  display: flex;
+  border: 2px solid red;
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
 #win-ready-peers .hand-suite .player-card {
