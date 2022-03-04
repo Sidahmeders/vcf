@@ -1,27 +1,30 @@
 import '../peers-call/index.js'
-import './components/cardsDropBox.js'
+import './components/dropBox.js'
 import './components/winReadyPeers.js'
-import './components/toggleWinReadyPeers.js'
 
+import './displayWinReadyPeers/index.js' // FIXME: PUT THIS AS AN EVENT HANDLERR
+
+import { roomEvents } from '../constant/events.js'
 import { roomListeners } from '../constant/listeners.js'
+
 import { errorNotification } from '../notifications/index.js'
 import displayRoomData from './displayRoomData/index.js'
 import addDraggedCard from './addDraggedCard.js'
-import addDroppedCards from './addDroppedCards.js'
 import removeDroppedCard from './removeDroppedCard.js'
+import updateSwappedCards from './updateSwappedCards.js'
+import addDroppedCards from './addDroppedCards.js'
 import updateOnlineStatus from './updateOnlineStatus.js'
 import updateTurnToPickStatus from './updateTurnToPickStatus.js'
-import updateSwappedCards from './updateSwappedCards.js'
 
 document.addEventListener('DOMContentLoaded', fetchRoomNameData)
 
 function fetchRoomNameData() {
   const { roomName, username } = getRoomInfo()
-  socket.emit(roomListeners.rooms_data, { username, roomName })
+  socket.emit(roomEvents.rooms_data, { username, roomName })
 }
 
-socket.on(roomListeners.rooms_joined, displayRoomData)
 socket.on(roomListeners.rooms_error, errorNotification)
+socket.on(roomListeners.rooms_joined, displayRoomData)
 
 socket.on(roomListeners.cards_dragged, addDraggedCard)
 socket.on(roomListeners.cards_dropped, removeDroppedCard)
