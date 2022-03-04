@@ -1,4 +1,4 @@
-import updateWinReadyStatus from './updateWinReadyStatus'
+import updateWinReadyStatus from './updateWinReadyStatus.js'
 import addWinReadyPeersCards from './addWinReadyPeersCards.js'
 
 const hardCodedPlayers = {
@@ -10,7 +10,9 @@ const hardCodedPlayers = {
   },
 }
 
-export default function winReadyPeers(winReadyPlayers = hardCodedPlayers) {
+function winReadyPeers(winReadyPlayers = hardCodedPlayers) {
   updateWinReadyStatus(winReadyPlayers)
   addWinReadyPeersCards(winReadyPlayers)
 }
+
+winReadyPeers()

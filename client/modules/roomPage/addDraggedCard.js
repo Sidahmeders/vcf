@@ -12,7 +12,7 @@ export default function addDraggedCard(playerCards) {
 
   cardElement.className = `player-card ${targetCard.split('+')[0]}`
   cardElement.setAttribute('card-id', targetCard)
-  cardElement.setAttribute('draggable', true)
+  cardElement.draggable = true
 
   addDragableEvents(cardElement)
   playerElement.appendChild(cardElement)
