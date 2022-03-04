@@ -1,4 +1,4 @@
-import { getPlayerCards } from './utils.js'
+import getPlayerCards from './utils/getPlayerCards.js'
 import addDragableEvents from './addDragableEvents.js'
 import updateSuitesStatus from './updateSuiteStatus.js'
 
@@ -13,7 +13,7 @@ export default function updateSwappedCards({ playerCards, droppedCards }) {
   cardElement.setAttribute('draggable', true)
   addDragableEvents(cardElement)
 
-  document.getElementById('player').appendChild(cardElement)
+  document.getElementById('local-player').appendChild(cardElement)
   document.querySelectorAll(`[card-id="${cardToRemove}"]`)[0].remove()
 
   updateSuitesStatus()

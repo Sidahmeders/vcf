@@ -1,5 +1,5 @@
-import { getPlayerCards } from './utils.js'
-import suiteValidator from './suiteValidator/index.js'
+import getPlayerCards from './utils/getPlayerCards.js'
+import suiteValidator from './utils/suiteValidator/index.js'
 
 export default async function updateSuitesStatus() {
   resetPlayerCardsStatus()
@@ -9,7 +9,7 @@ export default async function updateSuitesStatus() {
 }
 
 function resetPlayerCardsStatus() {
-  const cardsNodes = document.getElementById('player').childNodes
+  const cardsNodes = document.getElementById('local-player').childNodes
   cardsNodes.forEach((cardElement) => cardsFlag.removeValidFlag(cardElement))
 }
 
@@ -19,7 +19,7 @@ function setPlayerCardsStatus(suitesMap) {
     const bgColor = colors[index]
 
     for (let key in suite) {
-      const playerCardsNodes = document.getElementById('player').childNodes
+      const playerCardsNodes = document.getElementById('local-player').childNodes
       const startIndex = parseInt(key)
       const endIndex = startIndex + suite[key].length
 

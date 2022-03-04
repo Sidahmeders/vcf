@@ -41,25 +41,3 @@ export default function isValidSequence(cards) {
 
   return validSequencesMap
 }
-
-/*```
-const testCases = [
-    ['D7', 'H2', 'H3', 'H4', 'H5', 'H6', 'C7', 'C8', 'C9'],
-    ['SA', 'S2', 'S3'],
-    ['H8', 'D9', 'DA', 'DT'],
-    ['CA', 'CJ', 'CQ', 'CK'],
-    ['D9', 'DJ', 'DQ', 'DK'],
-    ['HT', 'HJ', 'HQ']
-]
-
-1) 9 + 10 + J = ??
-2) 9 + 10 + K = ??
-3) 9 + 10 + A = ??
-
-4) 8 + 9 + J = ??
-5) 8 + 9 + K = ??
-
-6) 9 + J + A = ??
-7) 9 + K + A = ??
-8) 10 + J + Q = ??
-```*/

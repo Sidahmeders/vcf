@@ -35,7 +35,7 @@ function groupPlayerCards(playerName, playerCards) {
   const playerSuites = splitCards(playerCards)
   const peerSuiteElement = document.createElement('div')
   peerSuiteElement.id = playerName
-  peerSuiteElement.className = 'peer-suite-container' + ' ' + 'hidden'
+  peerSuiteElement.className = 'peer-suite-container hidden'
 
   for (let handSuite of playerSuites) {
     const handSuiteElement = document.createElement('div')

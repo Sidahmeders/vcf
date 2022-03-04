@@ -1,4 +1,4 @@
-#table #player {
+#local-player {
   position: absolute;
   left: 0;
   bottom: 30%;

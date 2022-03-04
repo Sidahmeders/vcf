@@ -22,15 +22,3 @@ export default function isValidSet(cards) {
 
   return validSetsMap
 }
-
-/*```
-[Suit][Rank]
-D => DIAMOND, H => HEART, S => SPADE, C => CLOVER
-
-0) D6 + S6 + H6 = valid
-1) D2 + H2 + S2 + C2 = ?? valid : not
-
-2) DJ + SQ + HK = ?? not : valid
-3) D10 + HJ + SQ = ?? not : valid
-4) S10 + H10 + SJ + HQ = ?? not : valid
-```*/

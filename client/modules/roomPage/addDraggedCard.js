@@ -1,4 +1,4 @@
-import { getPlayerCards } from './utils.js'
+import getPlayerCards from './utils/getPlayerCards.js'
 import addDragableEvents from './addDragableEvents.js'
 import updateSuitesStatus from './updateSuiteStatus.js'
 
@@ -7,7 +7,7 @@ export default function addDraggedCard(playerCards) {
   const targetCard = String(playerCards.filter((x) => !oldPlayerCards.includes(x)))
   if (!targetCard) return
 
-  const playerElement = document.getElementById('player')
+  const playerElement = document.getElementById('local-player')
   const cardElement = document.createElement('div')
 
   cardElement.className = `player-card ${targetCard.split('+')[0]}`

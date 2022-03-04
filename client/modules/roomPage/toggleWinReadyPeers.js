@@ -1,9 +1,7 @@
 function toggleWinReadyPeers() {
   setTimeout(() => {
     const peersStatusContainer = document.getElementById('peers-status-container').childNodes
-    for (let peerNode of peersStatusContainer) {
-      peerNode.onclick = clickHanlder
-    }
+    for (let peerNode of peersStatusContainer) peerNode.onclick = clickHanlder
   }, 1000)
 }
 
