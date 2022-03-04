@@ -5,8 +5,9 @@ export default function displayPeersNames(players) {
   for (let peerName of players) {
     if (peerName !== localUserName) {
       const peerElement = document.createElement('div')
-      peerElement.className = 'peername'
+      peerElement.id = peerName
       peerElement.innerText = peerName
+      peerElement.className = 'peername'
 
       const onlineStatusEl = peerStatusElement('peername-online-status')
       const turnStatusEl = peerStatusElement('peername-turn-status')

@@ -9,6 +9,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9;
 }
 
 #peers-container .peername {
@@ -23,6 +24,14 @@
   border: 1px solid gray;
   border-radius: 5px;
   position: relative;
+}
+
+#peers-container .peername:hover {
+  cursor: pointer;
+}
+
+#peers-container .peername.focused {
+  border: 2px solid orange;
 }
 
 #peers-container .peername-online-status {

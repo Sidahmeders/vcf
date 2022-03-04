@@ -15,9 +15,19 @@
   padding-top: 75px;
 }
 
-#win-ready-peers .player-card {
+#win-ready-peers .peer-suite-container {
+  display: flex;
+  margin: 0 20px;
+  padding: 0 20px;
+}
+
+#win-ready-peers .peer-suite-container.hidden {
+  display: none;
+}
+
+#win-ready-peers .hand-suite .player-card {
   background-size: 2004px 800px;
-  width: 120px;
+  width: 70px;
   height: 175px;
   z-index: 2;
   border: 1px solid #333;
