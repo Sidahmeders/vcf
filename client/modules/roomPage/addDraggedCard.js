@@ -1,4 +1,4 @@
-import { CardElement } from './components/index.js'
+import { Card } from './components/index.js'
 import getPlayerCards from './utils/getPlayerCards.js'
 import updateSuiteStatus from './utils/updateSuiteStatus.js'
 
@@ -8,7 +8,7 @@ export default function addDraggedCard(playerCards) {
   if (!targetCard) return
 
   const playerElement = document.getElementById('local-player')
-  const cardElement = CardElement(targetCard, true)
+  const cardElement = Card(targetCard, true)
   playerElement.appendChild(cardElement)
   updateSuiteStatus()
 }

@@ -1,10 +1,8 @@
 import '../peers-call/index.js'
-
 import './displayWinReadyPeers/index.js' // FIXME: MAKE THIS AN EVENT HANDLER...
+import { DropBox, DeckHidden, ToggleWinReadyPeers } from './components/index.js'
 
-import { DropBoxElement, DeckHidden, ToggleWinReadyPeers } from './components/index.js'
-
-DropBoxElement()
+DropBox()
 DeckHidden()
 ToggleWinReadyPeers()
 
@@ -12,7 +10,7 @@ import { roomEvents } from '../constant/events.js'
 import { roomListeners } from '../constant/listeners.js'
 
 import { errorNotification } from '../notifications/index.js'
-import displayRoomData from './displayRoomData/index.js'
+import displayRoomData from './displayRoomData.js'
 import addDraggedCard from './addDraggedCard.js'
 import removeDroppedCard from './removeDroppedCard.js'
 import updateSwappedCards from './updateSwappedCards.js'

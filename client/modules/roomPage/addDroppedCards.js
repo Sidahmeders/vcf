@@ -1,4 +1,4 @@
-import { CardElement } from './components/index.js'
+import { Card } from './components/index.js'
 import { roomEvents } from '../constant/events.js'
 
 export default function addDroppedCards(droppedCards = []) {
@@ -7,7 +7,7 @@ export default function addDroppedCards(droppedCards = []) {
   const card = droppedCards.pop()
   if (!card) return
 
-  const cardElement = CardElement(card, false)
+  const cardElement = Card(card, false)
   cardElement.addEventListener('dragover', dragOver)
   cardElement.addEventListener('dragleave', dragLeave)
   cardElement.addEventListener('drop', dragDrop)
