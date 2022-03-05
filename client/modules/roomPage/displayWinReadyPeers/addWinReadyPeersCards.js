@@ -1,4 +1,5 @@
 import splitCards from './splitCards.js'
+import { Card, ValidHandSuite } from '../components/index.js'
 
 export default function addWinReadyPeersCards(winReadyPlayers) {
   const winReadyPeersContainer = document.getElementById('win-ready-peers')
@@ -6,38 +7,26 @@ export default function addWinReadyPeersCards(winReadyPlayers) {
   for (let playerName in winReadyPlayers) {
     const playerCards = winReadyPlayers[playerName]?.cards
     const playerSuites = splitCards(playerCards)
-    const peerSuiteElement = CreatePeerSuiteContainerEl('peer-suite-container hidden', playerName)
+    const peerSuiteElement = CreatePeerSuiteContainerEl(playerName)
 
     for (let handSuite of playerSuites) {
-      const handSuiteElement = CreateHandSuiteEl('hand-suite')
+      const validHandSuiteElement = ValidHandSuite()
 
-      handSuite.forEach((cardId) => {
-        const cardElement = CreateCardEl('player-card drag-disable', cardId)
-        handSuiteElement.append(cardElement)
+      handSuite.forEach((card) => {
+        const cardElement = Card(card, false)
+        validHandSuiteElement.append(cardElement)
       })
 
-      peerSuiteElement.appendChild(handSuiteElement)
+      peerSuiteElement.appendChild(validHandSuiteElement)
     }
 
     winReadyPeersContainer.appendChild(peerSuiteElement)
   }
 }
 
-function CreateCardEl(_className, cardId) {
-  const cardElement = document.createElement('div')
-  cardElement.className = `${_className} ${cardId.split('+')[0]}`
-  return cardElement
-}
-
-function CreateHandSuiteEl(_className) {
-  const handSuiteElement = document.createElement('div')
-  handSuiteElement.className = _className
-  return handSuiteElement
-}
-
-function CreatePeerSuiteContainerEl(_className, playerName) {
+function CreatePeerSuiteContainerEl(playerName) {
   const peerSuiteContainerElement = document.createElement('div')
   peerSuiteContainerElement.id = playerName
-  peerSuiteContainerElement.className = _className
+  peerSuiteContainerElement.className = 'peer-suite-container hidden'
   return peerSuiteContainerElement
 }
