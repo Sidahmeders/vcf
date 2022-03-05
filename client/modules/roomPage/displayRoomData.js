@@ -1,4 +1,5 @@
 import { Card, PeerStatus } from './components/index.js'
+import updateSuiteStatus from './utils/updateSuiteStatus.js'
 
 export default function displayRoomData(userData) {
   const { playerCards, players } = userData
@@ -13,6 +14,7 @@ function displayPlayerCards(playerCards) {
     const cardElement = Card(card, true)
     playerElement.appendChild(cardElement)
   }
+  updateSuiteStatus()
 }
 
 function displayPeersNames(players) {

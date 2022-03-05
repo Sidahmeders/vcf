@@ -1,5 +1,6 @@
 import updateWinReadyStatus from './updateWinReadyStatus.js'
 import addWinReadyPeersCards from './addWinReadyPeersCards.js'
+import toggleWinReadyPeers from './toggleWinReadyPeers.js'
 
 const hardCodedPlayers = {
   sodium: {
@@ -13,6 +14,7 @@ const hardCodedPlayers = {
 function winReadyPeers(winReadyPlayers = hardCodedPlayers) {
   updateWinReadyStatus(winReadyPlayers)
   addWinReadyPeersCards(winReadyPlayers)
+  toggleWinReadyPeers()
 }
 
 winReadyPeers()
