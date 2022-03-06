@@ -3,8 +3,8 @@ import suiteValidator from './suiteValidator/index.js'
 
 export default async function updateSuitesStatus() {
   resetPlayerCardsStatus()
-  const playerCardsClasses = getPlayerCards()
-  const suitesMap = suiteValidator(playerCardsClasses)
+  const playerCards = getPlayerCards()
+  const suitesMap = suiteValidator(playerCards)
   setPlayerCardsStatus(suitesMap)
 }
 
