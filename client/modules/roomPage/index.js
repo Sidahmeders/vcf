@@ -1,30 +1,32 @@
 import '../peers-call/index.js'
-import './displayWinReadyPeers/index.js' // FIXME: MAKE THIS AN EVENT HANDLER...
 import { DropBox, DeckHidden, PlayerStatus, DeclareCards } from './components/index.js'
+import { roomListeners } from '../constant/listeners.js'
+import { errorNotification } from '../notifications/index.js'
+import {
+  fetchRoomData,
+  displayRoomData,
+  addDraggedCard,
+  removeDroppedCard,
+  updateSwappedCards,
+  addDroppedCards,
+  updateOnlineStatus,
+  updateTurnToPickStatus,
+  displayWinReadyPeers, // FIXME: MAKE THIS AN EVENT HANDLER...
+} from './eventHandlers.js'
 
-PlayerStatus()
+document.addEventListener('DOMContentLoaded', fetchRoomData)
+
 DeclareCards()
 DropBox()
 DeckHidden()
 
-import { roomEvents } from '../constant/events.js'
-import { roomListeners } from '../constant/listeners.js'
+document.addEventListener('state-change', (event) => {
+  const { payload } = event.detail
+  if (payload.type === 'player-points') PlayerStatus(payload.data)
+  else console.warn('state has been changed...')
+})
 
-import { errorNotification } from '../notifications/index.js'
-import displayRoomData from './displayRoomData.js'
-import addDraggedCard from './addDraggedCard.js'
-import removeDroppedCard from './removeDroppedCard.js'
-import updateSwappedCards from './updateSwappedCards.js'
-import addDroppedCards from './addDroppedCards.js'
-import updateOnlineStatus from './updateOnlineStatus.js'
-import updateTurnToPickStatus from './updateTurnToPickStatus.js'
-
-document.addEventListener('DOMContentLoaded', fetchRoomNameData)
-
-function fetchRoomNameData() {
-  const { roomName, username } = getRoomInfo()
-  socket.emit(roomEvents.rooms_data, { username, roomName })
-}
+displayWinReadyPeers()
 
 socket.on(roomListeners.rooms_error, errorNotification)
 socket.on(roomListeners.rooms_joined, displayRoomData)
