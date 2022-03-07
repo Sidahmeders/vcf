@@ -4,8 +4,15 @@ import suiteValidator from './suiteValidator/index.js'
 export default async function updateSuitesStatus() {
   resetPlayerCardsStatus()
   const playerCards = getPlayerCards()
-  const suitesMap = suiteValidator(playerCards)
+  const { suitesMap, pointsMap } = suiteValidator(playerCards)
+
+  notifyPlayerStatus(pointsMap)
   setPlayerCardsStatus(suitesMap)
+}
+
+function notifyPlayerStatus(pointsMap) {
+  const event = new CustomEvent('player-points', { detail: { pointsMap } })
+  document.dispatchEvent(event)
 }
 
 function resetPlayerCardsStatus() {

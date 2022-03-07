@@ -8,8 +8,10 @@ module.exports = ({ wsEventEmitter, events }) => {
         check if the user has droped a card before he can pick.
         check if server didn't carsh and cleared the inMemory games.
       */
-      const isPlayerTurn = checkPlayersTurn(roomName, username)
-      if (!isPlayerTurn) throw Error('please wait for your Turn To Pick')
+
+      //FIXME: ADD THIS LINES BACK...
+      // const isPlayerTurn = checkPlayersTurn(roomName, username)
+      // if (!isPlayerTurn) throw Error('please wait for your Turn To Pick')
 
       dragCard(roomName, username)
       const playersStatus = getPlayersStatus(roomName)

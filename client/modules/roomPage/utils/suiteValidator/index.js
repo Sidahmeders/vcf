@@ -4,19 +4,14 @@ import isValidSet from './isValidSet.js'
 
 export default function suiteValidator(playerCards) {
   const suitesMap = []
-  const pointsMap = []
-
   const validSetsMap = isValidSet(playerCards)
   const validSequencesMap = isValidSequence(playerCards)
+  suitesMap.push(validSetsMap, validSequencesMap)
 
+  const pointsMap = []
   const setsPointsMap = getSuitesTotalPoints(validSetsMap)
   const sequencesPointsMap = getSuitesTotalPoints(validSequencesMap)
-
-  suitesMap.push(validSetsMap, validSequencesMap)
   pointsMap.push(setsPointsMap, sequencesPointsMap)
 
-  console.log(suitesMap)
-  console.log(pointsMap)
-
-  return suitesMap
+  return { suitesMap, pointsMap }
 }

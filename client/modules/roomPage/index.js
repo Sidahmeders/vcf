@@ -2,6 +2,9 @@ import '../peers-call/index.js'
 import './displayWinReadyPeers/index.js' // FIXME: MAKE THIS AN EVENT HANDLER...
 import { DropBox, DeckHidden } from './components/index.js'
 
+import PlayerStatus from './components/PlayerStatus.js'
+PlayerStatus()
+
 DropBox()
 DeckHidden()
 

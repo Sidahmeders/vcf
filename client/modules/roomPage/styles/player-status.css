@@ -1,0 +1,15 @@
+#player-status {
+  width: 19vw;
+  height: 19vh;
+  background-color: rgba(159, 241, 247, 0.3);
+  border: 2px solid orange;
+  border-top: 0;
+  border-right: 0;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
