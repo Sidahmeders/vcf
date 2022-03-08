@@ -1,4 +1,7 @@
 import updateSuiteStatus from './updateSuiteStatus.js'
+import state from '../../state/index.js'
+
+const roomState = state.roomState
 
 export default function addDragableEvents(cardElement) {
   cardElement.addEventListener('dragstart', dragStart)

@@ -3,6 +3,13 @@ class State {
     if (!State.instance) {
       this.playerPoints = 0
 
+      this.roomState = {
+        pickedCardClass: undefined,
+        pickedCardElement: undefined,
+        droppedCardClass: undefined,
+        cardId: undefined,
+      }
+
       State.instance = this
     }
     return State.instance

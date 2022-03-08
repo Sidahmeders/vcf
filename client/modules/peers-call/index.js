@@ -2,6 +2,7 @@ import requestTurn from './requestTURN.js'
 import { webrtcListeners } from '../constant/listeners.js'
 import { webrtcEvents } from '../constant/events.js'
 import { onJoined, onCall, onOffer, onAnswer, onCandidate } from './handlers.js'
+import getRoomInfo from '../roomPage/utils/getRoomInfo.js'
 
 const { roomName, username } = getRoomInfo()
 room = roomName

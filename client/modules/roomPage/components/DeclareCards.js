@@ -2,7 +2,7 @@ export default function createDeclareCards() {
   return function declareCards() {
     const declareButton = document.createElement('div')
     declareButton.id = 'declare-cards'
-    declareButton.innerText = 'Declare'
+    declareButton.innerText = 'declare'
     declareButton.style = `
     position: absolute;
     left: 46%;

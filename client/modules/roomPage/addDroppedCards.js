@@ -1,4 +1,4 @@
-export default function makeAddDroppedCards({ Card, roomEvents }) {
+export default function makeAddDroppedCards({ Card, roomEvents, socket, getRoomInfo, roomState }) {
   return function addDroppedCards(droppedCards = []) {
     const droppedCardsElement = document.getElementById('dropped-cards')
     droppedCardsElement.innerHTML = ''

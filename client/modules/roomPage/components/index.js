@@ -1,6 +1,11 @@
 import addDragableEvents from '../utils/addDragableEvents.js'
 import { roomEvents } from '../../constant/events.js'
 
+import getRoomInfo from '../utils/getRoomInfo.js'
+import state from '../../state/index.js'
+
+const roomState = state.roomState
+
 import createCardElement from './Card.js'
 import createDropBox from './DropBox.js'
 import createPeerStatus from './PeerStatus.js'
