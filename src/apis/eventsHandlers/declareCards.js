@@ -3,3 +3,7 @@ module.exports = ({ wsEventEmitter, events }) => {
     console.log('HOLA')
   }
 }
+
+function doSomething(a, b) {
+  return a + b
+}
