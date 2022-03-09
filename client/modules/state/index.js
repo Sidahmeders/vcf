@@ -1,7 +1,10 @@
 class State {
   constructor() {
     if (!State.instance) {
-      this.playerPoints = 0
+      this.playerSuiteStatus = {
+        validSuites: {},
+        totalPoints: 0,
+      }
 
       this.roomState = {
         pickedCardClass: undefined,
@@ -12,16 +15,22 @@ class State {
 
       State.instance = this
     }
+
     return State.instance
   }
 
-  setPlayerPoints(pointsMap) {
+  setPlayerSuiteStatus({ pointsMap, suitesMap }) {
     const setsPoints = pointsMap['0']
     const sequencePoints = pointsMap['1']
-    this.playerPoints = 0
-    for (let key in setsPoints) this.playerPoints += parseInt(setsPoints[key])
-    for (let key in sequencePoints) this.playerPoints += parseInt(sequencePoints[key])
-    this.publishStateChange({ type: 'player-points', data: this.playerPoints })
+
+    let playerPoints = 0
+    for (let key in setsPoints) playerPoints += parseInt(setsPoints[key])
+    for (let key in sequencePoints) playerPoints += parseInt(sequencePoints[key])
+
+    this.playerSuiteStatus.validSuites = suitesMap
+    this.playerSuiteStatus.totalPoints = playerPoints
+
+    this.publishStateChange({ type: 'player-points', data: playerPoints })
   }
 
   publishStateChange(payload = {}) {

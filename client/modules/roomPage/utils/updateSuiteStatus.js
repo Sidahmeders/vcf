@@ -7,7 +7,7 @@ export default async function updateSuitesStatus() {
   const playerCards = getPlayerCards()
   const { suitesMap, pointsMap } = suiteValidator(playerCards)
 
-  state.setPlayerPoints(pointsMap)
+  state.setPlayerSuiteStatus({ pointsMap, suitesMap })
   setPlayerCardsStatus(suitesMap)
 }
 

@@ -20,6 +20,6 @@ const PeerStatus = createPeerStatus()
 const DeckHidden = createDeckHidden({ roomEvents, socket, getRoomInfo })
 const ValidHandSuite = createValidHandSuite({ roomEvents, socket, getRoomInfo, roomState })
 const PlayerStatus = createPlayerStatus()
-const DeclareCards = createDeclareCards()
+const DeclareCards = createDeclareCards({ state })
 
 export { Card, DropBox, DeckHidden, PeerStatus, ValidHandSuite, PlayerStatus, DeclareCards }

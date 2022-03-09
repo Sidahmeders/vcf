@@ -1,23 +1,27 @@
 // ALPHA
 export default function isValidSequence(cards) {
   const validSequencesMap = {}
-  let prevRank,
-    prevSuit,
-    startIndex = 0,
-    cardIndex = -1
+  let prevRank, prevSuit
+  let startIndex = 0
+  let cardIndex = -1
+  const visitedCards = new Set()
 
   while (cardIndex++ < cards.length - 1) {
-    let card = cards[cardIndex]
+    let card = cards[cardIndex]?.split('+')[0]
     let [suit, rank] = [card[0], card[1]]
 
     if (prevSuit && prevRank) {
-      if (suit === prevSuit && checkRank(prevRank, rank)) {
+      if (suit === prevSuit && !visitedCards.has(card) && checkRank(prevRank, rank)) {
         if (cardIndex - startIndex >= 2) validSequencesMap[startIndex] = cards.slice(startIndex, cardIndex + 1)
-      } else startIndex = cardIndex
+      } else {
+        startIndex = cardIndex
+        visitedCards.clear()
+      }
     }
 
     prevSuit = suit
     prevRank = rank
+    visitedCards.add(card)
   }
 
   return validSequencesMap
