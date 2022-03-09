@@ -1,6 +1,4 @@
-const { updateInMemoryRoom, addOnlinePlayer, getPlayersStatus, getPlayerRoomData } = require('../../domain/services')
-
-module.exports = ({ wsEventEmitter, events }) => {
+module.exports = ({ wsEventEmitter, events, updateInMemoryRoom, addOnlinePlayer, getPlayersStatus, getPlayerRoomData }) => {
   return async (payload) => {
     try {
       const { roomName, username } = payload

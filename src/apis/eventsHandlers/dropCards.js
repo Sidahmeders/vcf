@@ -1,6 +1,4 @@
-const { dropCard, getPlayerRoomData } = require('../../domain/services')
-
-module.exports = ({ wsEventEmitter, events }) => {
+module.exports = ({ wsEventEmitter, events, dropCard, getPlayerRoomData }) => {
   return (payload) => {
     try {
       const { username, roomName, cardId } = payload

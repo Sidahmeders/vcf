@@ -1,6 +1,4 @@
-const { removeOnlinePlayer, getPlayersStatus } = require('../../domain/services')
-
-module.exports = ({ wsEventEmitter, events }) => {
+module.exports = ({ wsEventEmitter, events, removeOnlinePlayer, getPlayersStatus }) => {
   return () => {
     try {
       console.log(`user:: ${wsEventEmitter.socket.id} ::disconnected`)

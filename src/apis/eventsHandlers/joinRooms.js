@@ -1,6 +1,4 @@
-const { joinRoom } = require('../../domain/services')
-
-module.exports = ({ wsEventEmitter, events }) => {
+module.exports = ({ wsEventEmitter, events, joinRoom }) => {
   return async (payload) => {
     try {
       let { roomName, password, username } = payload
