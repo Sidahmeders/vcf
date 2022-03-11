@@ -1,15 +1,15 @@
-module.exports = function validateScore(validSuites) {
+module.exports = function validateScore(validMelds) {
   let totalPoints = 0
-  for (let key in validSuites) totalPoints += getSuitePoints(validSuites[key])
+  for (let key in validMelds) totalPoints += getSuitePoints(validMelds[key])
   return Boolean(totalPoints >= 91)
 }
 
-function getSuitePoints(suite) {
+function getSuitePoints(meld) {
   const charRanks = { T: 10, J: 10, Q: 10, K: 10 }
   let pointsCounter = 0
   let previousRank
 
-  for (let card of suite) {
+  for (let card of meld) {
     const cardRank = card[1]
     const cardPoint = parseInt(cardRank)
 

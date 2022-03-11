@@ -1,13 +1,12 @@
 module.exports = ({ InMemoryGames, validateScore }) => {
   return (roomName, username, playerMelds) => {
+    const { sets, sequences } = playerMelds
     const targetRoom = InMemoryGames.getRoomData(roomName)
-    const playerCards = targetRoom[username]
-    const validPlayerCards = extractMeldCards(playerMelds)
-
-    console.log(playerCards, validPlayerCards, '__+++__') //FIXME: REMOVE THIS LINE
+    const playerCards = targetRoom?.players[username]?.cards
+    const validPlayerCards = extractMeldCards({ ...sets, ...sequences })
 
     const isValidScore = validateScore({ ...sets, ...sequences })
-    const isValidMelds = authenticateMelds(serverSideCards, { sets, sequences })
+    const isValidMelds = authenticateMelds(playerCards, validPlayerCards)
     if (!isValidScore || !isValidMelds) throw Error('please verify that your melds are valid and above 91 total points')
 
     return validPlayerCards
@@ -20,8 +19,7 @@ function authenticateMelds(playerCards, validPlayerCards) {
   return Boolean(isValidMelds)
 }
 
-function extractMeldCards({ sets, sequences }) {
-  const melds = { ...sets, ...sequences }
+function extractMeldCards(melds) {
   const validPlayerCards = []
   for (let key in melds) validPlayerCards.push(...melds[key])
   return validPlayerCards
