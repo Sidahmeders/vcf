@@ -1,12 +1,7 @@
-export default function calcSuitesTotalPoints(validSuites) {
-  const validSetPoints = {}
-
-  for (let key in validSuites) {
-    const suite = validSuites[key]
-    validSetPoints[key] = getSuitePoints(suite)
-  }
-
-  return validSetPoints
+module.exports = function validateScore(validSuites) {
+  let totalPoints = 0
+  for (let key in validSuites) totalPoints += getSuitePoints(validSuites[key])
+  return Boolean(totalPoints >= 91)
 }
 
 function getSuitePoints(suite) {
@@ -14,8 +9,8 @@ function getSuitePoints(suite) {
   let pointsCounter = 0
   let previousRank
 
-  for (let i = 0; i < suite.length; i++) {
-    const cardRank = suite[i][1]
+  for (let card of suite) {
+    const cardRank = card[1]
     const cardPoint = parseInt(cardRank)
 
     if (cardPoint) pointsCounter += cardPoint

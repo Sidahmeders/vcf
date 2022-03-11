@@ -19,18 +19,10 @@ class State {
     return State.instance
   }
 
-  setPlayerSuiteStatus({ pointsMap, suitesMap }) {
-    const setsPoints = pointsMap['0']
-    const sequencePoints = pointsMap['1']
-
-    let playerPoints = 0
-    for (let key in setsPoints) playerPoints += parseInt(setsPoints[key])
-    for (let key in sequencePoints) playerPoints += parseInt(sequencePoints[key])
-
+  setPlayerSuiteStatus({ totalPoints, suitesMap }) {
     this.playerSuiteStatus.validSuites = suitesMap
-    this.playerSuiteStatus.totalPoints = playerPoints
-
-    this.publishStateChange({ type: 'player-points', data: playerPoints })
+    this.playerSuiteStatus.totalPoints = totalPoints
+    this.publishStateChange({ type: 'player-points', data: totalPoints })
   }
 
   publishStateChange(payload = {}) {

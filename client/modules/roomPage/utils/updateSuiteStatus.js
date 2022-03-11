@@ -1,13 +1,15 @@
 import getPlayerCards from './getPlayerCards.js'
-import suiteValidator from './suiteValidator/index.js'
+import SuiteValidator from './suiteValidator.js'
 import state from '../../state/index.js'
 
 export default async function updateSuitesStatus() {
   resetPlayerCardsStatus()
   const playerCards = getPlayerCards()
-  const { suitesMap, pointsMap } = suiteValidator(playerCards)
+  const suiteValidator = new SuiteValidator()
+  const suitesMap = suiteValidator.validatePlayerCards(playerCards)
+  const totalPoints = suiteValidator.calculatePoints()
 
-  state.setPlayerSuiteStatus({ pointsMap, suitesMap })
+  state.setPlayerSuiteStatus({ totalPoints, suitesMap })
   setPlayerCardsStatus(suitesMap)
 }
 
@@ -17,9 +19,10 @@ function resetPlayerCardsStatus() {
 }
 
 function setPlayerCardsStatus(suitesMap) {
-  const colors = ['#3f7', '#26f']
-  suitesMap.forEach((suite, index) => {
-    const bgColor = colors[index]
+  const colors = { sequences: '#3f7', sets: '#26f' }
+  for (let suiteType in suitesMap) {
+    const suite = suitesMap[suiteType]
+    const bgColor = colors[suiteType]
 
     for (let key in suite) {
       const playerCardsNodes = document.getElementById('local-player').childNodes
@@ -31,7 +34,7 @@ function setPlayerCardsStatus(suitesMap) {
         cardsFlag.addValidFlag(cardElement, bgColor)
       }
     }
-  })
+  }
 }
 
 const cardsFlag = {

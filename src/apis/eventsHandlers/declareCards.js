@@ -1,9 +1,15 @@
-module.exports = ({ wsEventEmitter, events }) => {
+module.exports = ({ wsEventEmitter, events, checkDeclaredCards }) => {
   return () => {
-    console.log('HOLA')
-  }
-}
+    try {
+      const { username, roomName, suitesMap } = payload
+      const { sequences, sets } = suitesMap
 
-function doSomething(a, b) {
-  return a + b
+      checkDeclaredCards(roomName, username, sets, sequences)
+
+      console.log(playerCards, 'DECLARE CARDS HANLDER>>>>')
+    } catch (err) {
+      wsEventEmitter.emit(events.roomsError, err.message)
+      console.error(err)
+    }
+  }
 }
