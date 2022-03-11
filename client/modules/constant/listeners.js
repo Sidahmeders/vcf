@@ -8,6 +8,8 @@ export const roomListeners = {
   cards_dropped: 'cards:dropped',
   cards_dragged: 'cards:dragged',
   cards_swapped: 'cards:swapped',
+  cards_declared: 'cards:declared', // TODO:
+  cards_updated: 'cards:updated', // TODO:
 }
 
 export const webrtcListeners = {
