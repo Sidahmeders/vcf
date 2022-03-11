@@ -1,9 +1,9 @@
-export default function createDeclareCards({ state }) {
+export default function createDeclareCards({ roomEvents, socket, state }) {
   return function declareCards() {
     const declareButton = document.createElement('div')
     declareButton.id = 'declare-cards'
     declareButton.innerText = 'declare'
-    declareButton.onclick = (event) => clickHandler(event, state)
+    declareButton.onclick = clickHandler
     declareButton.style = `
       position: absolute;
       left: 46%;
@@ -18,10 +18,11 @@ export default function createDeclareCards({ state }) {
 
     document.body.appendChild(declareButton)
   }
-}
 
-function clickHandler(event, state) {
-  // TODO: handle sending the event to the backend
-  const { validSuites, totalPoints } = state.playerSuiteStatus
-  console.log(event.target.innerText + ': ' + totalPoints, validSuites)
+  function clickHandler(event) {
+    const { validSuites, totalPoints } = state.playerSuiteStatus
+    console.log(event.target.innerText + ': ' + totalPoints, validSuites)
+
+    socket.emit(roomEvents.UNSET_EVENT, {})
+  }
 }

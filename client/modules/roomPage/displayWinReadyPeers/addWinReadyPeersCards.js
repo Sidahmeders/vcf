@@ -1,5 +1,5 @@
 import splitCards from './splitCards.js'
-import { Card, ValidHandSuite } from '../components/index.js'
+import { Card, LayedOffMelds } from '../components/index.js'
 
 export default function addWinReadyPeersCards(winReadyPlayers) {
   const winReadyPeersContainer = document.getElementById('win-ready-peers')
@@ -10,7 +10,7 @@ export default function addWinReadyPeersCards(winReadyPlayers) {
     const peerSuiteElement = CreatePeerSuiteContainerEl(playerName)
 
     for (let handSuite of playerSuites) {
-      const validHandSuiteElement = ValidHandSuite()
+      const validHandSuiteElement = LayedOffMelds()
 
       handSuite.forEach((card) => {
         const cardElement = Card(card, false)

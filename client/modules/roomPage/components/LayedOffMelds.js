@@ -1,5 +1,5 @@
-export default function createValidHandSuite({ roomEvents, socket, getRoomInfo, roomState }) {
-  return function validHandSuite() {
+export default function createLayedOffMelds({ roomEvents, socket, getRoomInfo, state }) {
+  return function layedOffMelds() {
     const handSuiteElement = document.createElement('div')
     handSuiteElement.className = 'valid-hand-suite'
 
@@ -21,7 +21,7 @@ export default function createValidHandSuite({ roomEvents, socket, getRoomInfo, 
       console.log('DRAG DROP')
       // TODO: HANDLE EVENT PUSH
       const { roomName, username } = getRoomInfo()
-      const { cardId } = roomState
+      const { cardId } = state.roomState
       const payload = { roomName, username, cardId }
       socket.emit('Some-Random-Event', payload)
       // ----------------------

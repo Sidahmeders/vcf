@@ -1,4 +1,4 @@
-export default function createDropBoxElement({ socket, getRoomInfo, roomState, roomEvents }) {
+export default function createDropBoxElement({ socket, getRoomInfo, state, roomEvents }) {
   return function dropBoxElement() {
     const dropBoxElement = document.getElementById('drop-box')
 
@@ -19,7 +19,7 @@ export default function createDropBoxElement({ socket, getRoomInfo, roomState, r
   function dragDrop() {
     this.classList.remove('hovered')
     const { roomName, username } = getRoomInfo()
-    const { cardId } = roomState
+    const { cardId } = state.roomState
     const payload = { roomName, username, cardId }
     socket.emit(roomEvents.cards_drop, payload)
   }
