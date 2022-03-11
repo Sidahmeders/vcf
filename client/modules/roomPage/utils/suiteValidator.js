@@ -95,7 +95,7 @@ function getSuitePoints(suite) {
 
     if (cardPoint) pointsCounter += cardPoint
     else if (charRanks[cardRank]) pointsCounter += charRanks[cardRank]
-    else if (cardRank === 'A' && previousRank !== 'A') pointsCounter += 11
+    else if (cardRank === 'A' && previousRank !== undefined && previousRank !== 'A') pointsCounter += 11
     else pointsCounter += 1
     previousRank = cardRank
   }
