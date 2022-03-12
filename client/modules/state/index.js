@@ -1,8 +1,8 @@
 class State {
   constructor() {
     if (!State.instance) {
-      this.playerSuiteStatus = {
-        validSuites: {},
+      this.playerMeldsStatus = {
+        validMelds: {},
         totalPoints: 0,
       }
 
@@ -19,9 +19,9 @@ class State {
     return State.instance
   }
 
-  setPlayerSuiteStatus({ totalPoints, suitesMap }) {
-    this.playerSuiteStatus.validSuites = suitesMap
-    this.playerSuiteStatus.totalPoints = totalPoints
+  setPlayerMeldsStatus({ totalPoints, meldsMap }) {
+    this.playerMeldsStatus.validMelds = meldsMap
+    this.playerMeldsStatus.totalPoints = totalPoints
     this.publishStateChange({ type: 'player-points', data: totalPoints })
   }
 

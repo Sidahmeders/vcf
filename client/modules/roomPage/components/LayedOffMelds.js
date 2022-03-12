@@ -1,11 +1,11 @@
 export default function createLayedOffMelds({ roomEvents, socket, getRoomInfo, state }) {
   return function layedOffMelds() {
-    const handSuiteElement = document.createElement('div')
-    handSuiteElement.className = 'valid-hand-suite'
+    const handMeldElement = document.createElement('div')
+    handMeldElement.className = 'valid-hand-Meld'
 
-    handSuiteElement.addEventListener('dragover', dragOver)
-    handSuiteElement.addEventListener('dragleave', dragLeave)
-    handSuiteElement.addEventListener('drop', dragDrop)
+    handMeldElement.addEventListener('dragover', dragOver)
+    handMeldElement.addEventListener('dragleave', dragLeave)
+    handMeldElement.addEventListener('drop', dragDrop)
 
     function dragOver(event) {
       event.preventDefault()
@@ -27,6 +27,6 @@ export default function createLayedOffMelds({ roomEvents, socket, getRoomInfo, s
       // ----------------------
     }
 
-    return handSuiteElement
+    return handMeldElement
   }
 }

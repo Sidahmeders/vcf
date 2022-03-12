@@ -1,4 +1,4 @@
-export default function makeDisplayRoomData({ Card, PeerStatus, localUserName, updateSuiteStatus }) {
+export default function makeDisplayRoomData({ Card, PeerStatus, localUserName, updateMeldStatus }) {
   return function displayRoomData(userData) {
     const { playerCards, players } = userData
     displayPlayerCards(playerCards)
@@ -12,7 +12,7 @@ export default function makeDisplayRoomData({ Card, PeerStatus, localUserName, u
       const cardElement = Card(card, true)
       playerElement.appendChild(cardElement)
     }
-    updateSuiteStatus()
+    updateMeldStatus()
   }
 
   function displayPeersNames(players) {

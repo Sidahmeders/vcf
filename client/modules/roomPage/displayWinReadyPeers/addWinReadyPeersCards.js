@@ -6,27 +6,27 @@ export default function addWinReadyPeersCards(winReadyPlayers) {
 
   for (let playerName in winReadyPlayers) {
     const playerCards = winReadyPlayers[playerName]?.cards
-    const playerSuites = splitCards(playerCards)
-    const peerSuiteElement = CreatePeerSuiteContainerEl(playerName)
+    const playerMelds = splitCards(playerCards)
+    const peerMeldElement = CreatePeerMeldContainerEl(playerName)
 
-    for (let handSuite of playerSuites) {
-      const validHandSuiteElement = LayedOffMelds()
+    for (let handMeld of playerMelds) {
+      const validHandMeldElement = LayedOffMelds()
 
-      handSuite.forEach((card) => {
+      handMeld.forEach((card) => {
         const cardElement = Card(card, false)
-        validHandSuiteElement.append(cardElement)
+        validHandMeldElement.append(cardElement)
       })
 
-      peerSuiteElement.appendChild(validHandSuiteElement)
+      peerMeldElement.appendChild(validHandMeldElement)
     }
 
-    winReadyPeersContainer.appendChild(peerSuiteElement)
+    winReadyPeersContainer.appendChild(peerMeldElement)
   }
 }
 
-function CreatePeerSuiteContainerEl(playerName) {
-  const peerSuiteContainerElement = document.createElement('div')
-  peerSuiteContainerElement.id = playerName
-  peerSuiteContainerElement.className = 'peer-suite-container hidden'
-  return peerSuiteContainerElement
+function CreatePeerMeldContainerEl(playerName) {
+  const peerMeldContainerElement = document.createElement('div')
+  peerMeldContainerElement.id = playerName
+  peerMeldContainerElement.className = 'peer-Meld-container hidden'
+  return peerMeldContainerElement
 }

@@ -20,8 +20,8 @@ const PORT = process.env.PORT || 5000
 server.listen(PORT, console.log(`server running on port ${PORT}..`))
 
 /**
- * valid suite (10-S, J-S, Q-S), (2-C, 2-H, 2-S), (4-S, 5-S, 6-S, ...)
- * valid suite (A-H, 2-H, 3-H, 4-H, 5-H, 6-H....)
+ * valid Meld (10-S, J-S, Q-S), (2-C, 2-H, 2-S), (4-S, 5-S, 6-S, ...)
+ * valid Meld (A-H, 2-H, 3-H, 4-H, 5-H, 6-H....)
  * 1 2 3 4.... J Q K A
  * A = 11 OR 1
  * 91++ point can drop

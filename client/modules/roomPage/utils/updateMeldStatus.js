@@ -1,16 +1,16 @@
 import getPlayerCards from './getPlayerCards.js'
-import SuiteValidator from './suiteValidator.js'
+import MeldValidator from './meldValidator.js'
 import state from '../../state/index.js'
 
-export default async function updateSuitesStatus() {
+export default async function updateMeldsStatus() {
   resetPlayerCardsStatus()
   const playerCards = getPlayerCards()
-  const suiteValidator = new SuiteValidator()
-  const suitesMap = suiteValidator.validatePlayerCards(playerCards)
-  const totalPoints = suiteValidator.calculatePoints()
+  const meldValidator = new MeldValidator()
+  const meldsMap = meldValidator.validatePlayerCards(playerCards)
+  const totalPoints = meldValidator.calculatePoints()
 
-  state.setPlayerSuiteStatus({ totalPoints, suitesMap })
-  setPlayerCardsStatus(suitesMap)
+  state.setPlayerMeldsStatus({ totalPoints, meldsMap })
+  setPlayerCardsStatus(meldsMap)
 }
 
 function resetPlayerCardsStatus() {
@@ -18,16 +18,16 @@ function resetPlayerCardsStatus() {
   cardsNodes.forEach((cardElement) => cardsFlag.removeValidFlag(cardElement))
 }
 
-function setPlayerCardsStatus(suitesMap) {
+function setPlayerCardsStatus(meldsMap) {
   const colors = { sequences: '#3f7', sets: '#26f' }
-  for (let suiteType in suitesMap) {
-    const suite = suitesMap[suiteType]
-    const bgColor = colors[suiteType]
+  for (let MeldType in meldsMap) {
+    const Meld = meldsMap[MeldType]
+    const bgColor = colors[MeldType]
 
-    for (let key in suite) {
+    for (let key in Meld) {
       const playerCardsNodes = document.getElementById('local-player').childNodes
       const startIndex = parseInt(key)
-      const endIndex = startIndex + suite[key].length
+      const endIndex = startIndex + Meld[key].length
 
       for (let i = startIndex; i < endIndex; i++) {
         const cardElement = playerCardsNodes[i]

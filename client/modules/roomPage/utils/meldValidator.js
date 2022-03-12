@@ -1,20 +1,20 @@
-export default class SuiteValidator {
-  #validSuiteMap = {
+export default class MeldValidator {
+  #validMeldMap = {
     sequences: {},
     sets: {},
   }
   #totalPoints = 0
 
   validatePlayerCards(playerCards) {
-    this.#validate(playerCards, SuiteValidator.SEQUENCES)
-    this.#validate(playerCards, SuiteValidator.SETS)
+    this.#validate(playerCards, MeldValidator.SEQUENCES)
+    this.#validate(playerCards, MeldValidator.SETS)
 
-    return this.#validSuiteMap
+    return this.#validMeldMap
   }
 
   calculatePoints() {
-    const setsPoints = getTotalPointsMap(this.#validSuiteMap.sets)
-    const sequencesPoints = getTotalPointsMap(this.#validSuiteMap.sequences)
+    const setsPoints = getTotalPointsMap(this.#validMeldMap.sets)
+    const sequencesPoints = getTotalPointsMap(this.#validMeldMap.sequences)
     let playerPoints = 0
     for (let key in setsPoints) playerPoints += parseInt(setsPoints[key])
     for (let key in sequencesPoints) playerPoints += parseInt(sequencesPoints[key])
@@ -23,7 +23,7 @@ export default class SuiteValidator {
     return this.#totalPoints
   }
 
-  #validate(cards, suiteType) {
+  #validate(cards, MeldType) {
     const visitedCards = new Set()
     let prevRank, prevSuit
     let startIndex = 0
@@ -38,13 +38,13 @@ export default class SuiteValidator {
       const isValidSetSoFar = suit !== prevSuit && prevRank === rank && !visitedCards.has(card)
       const isValidRunSoFar = suit === prevSuit && this.#checkRank(prevRank, rank) && !visitedCards.has(card)
 
-      if (canCompare && isInRange && suiteType === SuiteValidator.SETS && isValidSetSoFar) {
-        this.#validSuiteMap.sets[startIndex] = cards.slice(startIndex, cardIndex + 1)
-      } else if (canCompare && isInRange && suiteType === SuiteValidator.SEQUENCES && isValidRunSoFar) {
-        this.#validSuiteMap.sequences[startIndex] = cards.slice(startIndex, cardIndex + 1)
+      if (canCompare && isInRange && MeldType === MeldValidator.SETS && isValidSetSoFar) {
+        this.#validMeldMap.sets[startIndex] = cards.slice(startIndex, cardIndex + 1)
+      } else if (canCompare && isInRange && MeldType === MeldValidator.SEQUENCES && isValidRunSoFar) {
+        this.#validMeldMap.sequences[startIndex] = cards.slice(startIndex, cardIndex + 1)
       }
 
-      if ((suiteType === SuiteValidator.SETS && !isValidSetSoFar) || (suiteType === SuiteValidator.SEQUENCES && !isValidRunSoFar)) {
+      if ((MeldType === MeldValidator.SETS && !isValidSetSoFar) || (MeldType === MeldValidator.SEQUENCES && !isValidRunSoFar)) {
         startIndex = cardIndex
         visitedCards.clear()
       }
@@ -73,24 +73,24 @@ export default class SuiteValidator {
   }
 }
 
-function getTotalPointsMap(validSuites) {
+function getTotalPointsMap(validMelds) {
   const validSetPoints = {}
 
-  for (let key in validSuites) {
-    const suite = validSuites[key]
-    validSetPoints[key] = getSuitePoints(suite)
+  for (let key in validMelds) {
+    const Meld = validMelds[key]
+    validSetPoints[key] = getMeldPoints(Meld)
   }
 
   return validSetPoints
 }
 
-function getSuitePoints(suite) {
+function getMeldPoints(Meld) {
   const charRanks = { T: 10, J: 10, Q: 10, K: 10 }
   let pointsCounter = 0
   let previousRank
 
-  for (let i = 0; i < suite.length; i++) {
-    const cardRank = suite[i][1]
+  for (let i = 0; i < Meld.length; i++) {
+    const cardRank = Meld[i][1]
     const cardPoint = parseInt(cardRank)
 
     if (cardPoint) pointsCounter += cardPoint
@@ -103,5 +103,5 @@ function getSuitePoints(suite) {
   return pointsCounter
 }
 
-SuiteValidator.SETS = Symbol('3 or more cards of the same rank')
-SuiteValidator.SEQUENCES = Symbol(' 3 or more consecutive cards of the same suit')
+MeldValidator.SETS = Symbol('3 or more cards of the same rank')
+MeldValidator.SEQUENCES = Symbol(' 3 or more consecutive cards of the same suit')

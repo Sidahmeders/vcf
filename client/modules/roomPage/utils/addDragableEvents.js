@@ -1,4 +1,4 @@
-import updateSuiteStatus from './updateSuiteStatus.js'
+import updateMeldStatus from './updateMeldStatus.js'
 import state from '../../state/index.js'
 
 const roomState = state.roomState
@@ -50,5 +50,5 @@ function dragDrop() {
   roomState.pickedCardElement.setAttribute('card-id', this.getAttribute('card-id'))
   this.setAttribute('card-id', roomState.cardId)
 
-  updateSuiteStatus()
+  updateMeldStatus()
 }

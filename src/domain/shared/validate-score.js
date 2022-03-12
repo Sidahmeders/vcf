@@ -1,10 +1,10 @@
 module.exports = function validateScore(validMelds) {
   let totalPoints = 0
-  for (let key in validMelds) totalPoints += getSuitePoints(validMelds[key])
+  for (let key in validMelds) totalPoints += getMeldPoints(validMelds[key])
   return Boolean(totalPoints >= 91)
 }
 
-function getSuitePoints(meld) {
+function getMeldPoints(meld) {
   const charRanks = { T: 10, J: 10, Q: 10, K: 10 }
   let pointsCounter = 0
   let previousRank

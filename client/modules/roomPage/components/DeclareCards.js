@@ -1,4 +1,4 @@
-export default function createDeclareCards({ roomEvents, socket, state }) {
+export default function createDeclareCards({ roomEvents, socket, getRoomInfo, state }) {
   return function declareCards() {
     const declareButton = document.createElement('div')
     declareButton.id = 'declare-cards'
@@ -19,10 +19,17 @@ export default function createDeclareCards({ roomEvents, socket, state }) {
     document.body.appendChild(declareButton)
   }
 
-  function clickHandler(event) {
-    const { validSuites, totalPoints } = state.playerSuiteStatus
-    console.log(event.target.innerText + ': ' + totalPoints, validSuites)
+  function clickHandler() {
+    const { validMelds, totalPoints } = state.playerMeldsStatus
 
-    socket.emit(roomEvents.UNSET_EVENT, {})
+    if (totalPoints < 30) {
+      console.warn('please make sure your score is above 30')
+      return
+    }
+
+    const { roomName, username } = getRoomInfo()
+    const payload = { roomName, username, meldsMap: validMelds }
+
+    socket.emit(roomEvents.cards_declare, payload)
   }
 }

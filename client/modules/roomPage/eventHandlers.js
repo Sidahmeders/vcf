@@ -1,7 +1,7 @@
 import { roomEvents } from '../constant/events.js'
 import { Card, PeerStatus } from './components/index.js'
 import getPlayerCards from './utils/getPlayerCards.js'
-import updateSuiteStatus from './utils/updateSuiteStatus.js'
+import updateMeldStatus from './utils/updateMeldStatus.js'
 
 import getRoomInfo from './utils/getRoomInfo.js'
 import state from '../state/index.js'
@@ -18,10 +18,10 @@ import makeUpdateTurnToPickStatus from './updateTurnToPickStatus.js'
 import makeDisplayWinReadyPeers from './displayWinReadyPeers/index.js'
 
 const fetchRoomData = makeFetchRoomData({ socket, getRoomInfo, roomEvents })
-const displayRoomData = makeDisplayRoomData({ Card, PeerStatus, localUserName, updateSuiteStatus })
-const addDraggedCard = makeAddDraggedCard({ Card, getPlayerCards, updateSuiteStatus })
-const removeDroppedCard = makeRemoveDroppedCard({ getPlayerCards, updateSuiteStatus })
-const updateSwappedCards = makeUpdateSwappedCards({ Card, getPlayerCards, updateSuiteStatus })
+const displayRoomData = makeDisplayRoomData({ Card, PeerStatus, localUserName, updateMeldStatus })
+const addDraggedCard = makeAddDraggedCard({ Card, getPlayerCards, updateMeldStatus })
+const removeDroppedCard = makeRemoveDroppedCard({ getPlayerCards, updateMeldStatus })
+const updateSwappedCards = makeUpdateSwappedCards({ Card, getPlayerCards, updateMeldStatus })
 const addDroppedCards = makeAddDroppedCards({ Card, roomEvents, socket, getRoomInfo, roomState })
 const updateOnlineStatus = makeUpdateOnlineStatus()
 const updateTurnToPickStatus = makeUpdateTurnToPickStatus()
