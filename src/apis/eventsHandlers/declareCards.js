@@ -1,13 +1,11 @@
-module.exports = ({ wsEventEmitter, events, checkDeclaredCards, getPlayerRoomData }) => {
+module.exports = ({ wsEventEmitter, events, updateDeclaredCards, getPlayerRoomData }) => {
   return (payload) => {
     try {
       const { roomName, username, meldsMap } = payload
 
-      const validPlayerCards = checkDeclaredCards(roomName, username, meldsMap)
-      const { playerCards } = getPlayerRoomData(roomName, username)
-
-      playerCards = playerCards.filter((card) => !validPlayerCards.includes(card))
-      console.log(playerCards, 'DECLARE CARDS HANLDER>>>>') // FIXME: REMOVE THIS LINE
+      const { validPlayerCards, newPlayerCards } = updateDeclaredCards(roomName, username, meldsMap)
+      wsEventEmitter.emit(events.cards_updated, newPlayerCards)
+      wsEventEmitter.broadcastToRoom(roomName, events.cards_declared, validPlayerCards)
     } catch (err) {
       wsEventEmitter.emit(events.roomsError, err.message)
       console.error(err)

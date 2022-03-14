@@ -21,7 +21,6 @@ export default function createDeclareCards({ roomEvents, socket, getRoomInfo, st
 
   function clickHandler() {
     const { validMelds, totalPoints } = state.playerMeldsStatus
-
     if (totalPoints < 30) {
       console.warn('please make sure your score is above 30')
       return
@@ -29,7 +28,6 @@ export default function createDeclareCards({ roomEvents, socket, getRoomInfo, st
 
     const { roomName, username } = getRoomInfo()
     const payload = { roomName, username, meldsMap: validMelds }
-
     socket.emit(roomEvents.cards_declare, payload)
   }
 }

@@ -6,6 +6,6 @@ module.exports = {
   cards_drag: 'cards:drag',
   cards_drop: 'cards:drop',
   cards_swap: 'cards:swap',
-  cards_declare: 'cards:declare', // TODO:
+  cards_declare: 'cards:declare',
   disconnect: 'disconnect',
 }

@@ -9,6 +9,6 @@ module.exports = ({ InMemoryGames }) => {
     const pickedCard = droppedCards.pop()
     droppedCards.push(cardToSwap)
     playerCards.push(pickedCard)
-    players[username].cards = playerCards.filter((card) => card !== cardToSwap)
+    players[username].cards = playerCards.filter((card) => card !== cardToSwap) //FIXME: REPEATED...
   }
 }

@@ -20,7 +20,7 @@ const {
   updateDroppedCard,
   addOnlinePlayer,
   removeOnlinePlayer,
-  checkDeclaredCards,
+  updateDeclaredCards,
 } = require('../../domain/services')
 
 module.exports = (wsEventEmitter) => {
@@ -32,7 +32,7 @@ module.exports = (wsEventEmitter) => {
   const dragCards = makeDragCards({ wsEventEmitter, events, checkPlayersTurn, dragCard, getPlayersStatus, getPlayerRoomData })
   const dropCards = makeDropCards({ wsEventEmitter, events, dropCard, getPlayerRoomData })
   const swapCards = makeSwapCards({ wsEventEmitter, events, updateDroppedCard, getPlayerRoomData })
-  const declareCards = makeDeclareCards({ wsEventEmitter, events, checkDeclaredCards })
+  const declareCards = makeDeclareCards({ wsEventEmitter, events, updateDeclaredCards, getPlayerRoomData })
 
   const { peerJoin, peerMessage } = makeWebrtcSignaling({ wsEventEmitter, events })
 

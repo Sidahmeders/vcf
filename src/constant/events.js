@@ -3,7 +3,8 @@ module.exports = {
   cardsDragged: 'cards:dragged',
   cardsDropped: 'cards:dropped',
   cardsSwapped: 'cards:swapped',
-  cards_updated: 'cards:updated', // TODO:
+  cards_updated: 'cards:updated',
+  cards_declared: 'cards:declared',
   roomsJoined: 'rooms:joined',
   peersJoined: 'peers:joined',
   peersConnect: 'peers:connect',

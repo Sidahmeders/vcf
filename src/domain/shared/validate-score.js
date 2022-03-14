@@ -1,7 +1,7 @@
 module.exports = function validateScore(validMelds) {
   let totalPoints = 0
   for (let key in validMelds) totalPoints += getMeldPoints(validMelds[key])
-  return Boolean(totalPoints >= 91)
+  return Boolean(totalPoints >= 30)
 }
 
 function getMeldPoints(meld) {
