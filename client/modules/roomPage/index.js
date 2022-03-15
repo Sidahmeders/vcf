@@ -11,7 +11,8 @@ import {
   addDroppedCards,
   updateOnlineStatus,
   updateTurnToPickStatus,
-  displayWinReadyPeers, // FIXME: MAKE THIS AN EVENT HANDLER...
+  updatePlayerCards,
+  displayDeclaredCards,
 } from './eventHandlers.js'
 
 document.addEventListener('DOMContentLoaded', fetchRoomData)
@@ -26,15 +27,16 @@ document.addEventListener('state-change', (event) => {
   else console.warn('state has been changed...')
 })
 
-displayWinReadyPeers()
-
 socket.on(roomListeners.rooms_error, errorNotification)
 socket.on(roomListeners.rooms_joined, displayRoomData)
 
 socket.on(roomListeners.cards_dragged, addDraggedCard)
 socket.on(roomListeners.cards_dropped, removeDroppedCard)
-socket.on(roomListeners.cards_swapped, updateSwappedCards)
 socket.on(roomListeners.peers_dropped_card, addDroppedCards)
+socket.on(roomListeners.cards_swapped, updateSwappedCards)
+
+socket.on(roomListeners.cards_updated, updatePlayerCards)
+socket.on(roomListeners.cards_declared, displayDeclaredCards)
 
 socket.on(roomListeners.peers_disconnect, updateOnlineStatus)
 socket.on(roomListeners.peers_connect, updateOnlineStatus)

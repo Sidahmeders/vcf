@@ -3,9 +3,13 @@ module.exports = ({ wsEventEmitter, events, updateDeclaredCards, getPlayerRoomDa
     try {
       const { roomName, username, meldsMap } = payload
 
-      const { validPlayerCards, newPlayerCards } = updateDeclaredCards(roomName, username, meldsMap)
-      wsEventEmitter.emit(events.cards_updated, newPlayerCards)
-      wsEventEmitter.broadcastToRoom(roomName, events.cards_declared, validPlayerCards)
+      updateDeclaredCards(roomName, username, meldsMap)
+
+      const { declaredPlayers, playerCards } = getPlayerRoomData(roomName, username)
+      console.log(declaredPlayers, playerCards, 'IN DECLARE CARDS>>>')
+
+      wsEventEmitter.emit(events.cards_updated, playerCards)
+      wsEventEmitter.broadcastToRoom(roomName, events.cards_declared, declaredPlayers)
     } catch (err) {
       wsEventEmitter.emit(events.roomsError, err.message)
       console.error(err)

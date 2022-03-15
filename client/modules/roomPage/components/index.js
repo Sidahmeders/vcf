@@ -1,7 +1,7 @@
-import addDragableEvents from '../utils/addDragableEvents.js'
-import { roomEvents } from '../../constant/events.js'
-import getRoomInfo from '../utils/getRoomInfo.js'
 import state from '../../state/index.js'
+import { roomEvents } from '../../constant/events.js'
+
+import { addDragableEvents, getRoomInfo } from '../utils/index.js'
 
 import createCardElement from './Card.js'
 import createDropBox from './DropBox.js'

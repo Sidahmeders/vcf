@@ -1,4 +1,4 @@
-module.exports = ({ InMemoryGames, validateScore, authenticateMelds }) => {
+module.exports = ({ InMemoryGames, Player, validateScore, authenticateMelds }) => {
   return (roomName, username, playerMelds) => {
     const { sets, sequences } = playerMelds
     const targetRoom = InMemoryGames.getRoomData(roomName)
@@ -11,9 +11,9 @@ module.exports = ({ InMemoryGames, validateScore, authenticateMelds }) => {
 
     if (!isValidScore || !isValidMelds) throw Error('please verify that your melds are valid and above 91 total points')
     const newPlayerCards = playerCards.filter((card) => !validPlayerCards.includes(card)) //FIXME: REPEATED...
-    players[username].cards = newPlayerCards
 
-    return { validPlayerCards, newPlayerCards }
+    players[username].cards = newPlayerCards
+    targetRoom.declaredPlayers[username] = { cards: validPlayerCards }
   }
 
   function extractMeldCards(melds) {

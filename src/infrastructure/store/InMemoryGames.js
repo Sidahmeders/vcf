@@ -6,22 +6,13 @@ module.exports = {
       password: '1234',
       cardsDeck: [],
       droppedCards: [],
+      declaredPlayers: {
+        amine: { cards: [], isOnline: false, turnToPick: false },
+      },
       players: {
-        yousef: {
-          cards: [],
-          isOnline: false,
-          turnToPick: false,
-        },
-        amine: {
-          cards: [],
-          isOnline: false,
-          turnToPick: false,
-        },
-        yassine: {
-          cards: [],
-          isOnline: false,
-          turnToPick: false,
-        },
+        yousef: { cards: [], isOnline: false, turnToPick: false },
+        amine: { cards: [], isOnline: false, turnToPick: false },
+        yassine: { cards: [], isOnline: false, turnToPick: false },
       },
     },
   },
