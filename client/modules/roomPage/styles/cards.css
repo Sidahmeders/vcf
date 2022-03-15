@@ -39,7 +39,8 @@
 }
 
 .player-card.hold {
-  width: 330px;
+  width: 141px;
+  height: 198px;
   border: 2px solid orange;
 }
 
