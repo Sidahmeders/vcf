@@ -22,7 +22,7 @@ const checkPlayersTurn = makeCheckPlayersTurn({ InMemoryGames })
 const { addOnlinePlayer, removeOnlinePlayer } = makeUpdateOnlinePlayers({ InMemoryGames })
 const getPlayersStatus = makeGetPlayersStatus({ InMemoryGames })
 const updateDroppedCard = makeUpdateDroppedCard({ InMemoryGames })
-const updateDeclaredCards = makeUpdateDeclaredCards({ InMemoryGames, Player, validateScore, authenticateMelds })
+const updateDeclaredCards = makeUpdateDeclaredCards({ InMemoryGames, validateScore, authenticateMelds })
 
 module.exports = {
   getPlayerRoomData,

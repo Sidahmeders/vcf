@@ -1,4 +1,4 @@
-module.exports = ({ InMemoryGames, Player, validateScore, authenticateMelds }) => {
+module.exports = ({ InMemoryGames, validateScore, authenticateMelds }) => {
   return (roomName, username, playerMelds) => {
     const { sets, sequences } = playerMelds
     const targetRoom = InMemoryGames.getRoomData(roomName)
@@ -13,7 +13,7 @@ module.exports = ({ InMemoryGames, Player, validateScore, authenticateMelds }) =
     const newPlayerCards = playerCards.filter((card) => !validPlayerCards.includes(card)) //FIXME: REPEATED...
 
     players[username].cards = newPlayerCards
-    targetRoom.declaredPlayers[username] = { cards: validPlayerCards }
+    targetRoom.declaredPlayers[username] = { melds: playerMelds }
   }
 
   function extractMeldCards(melds) {
