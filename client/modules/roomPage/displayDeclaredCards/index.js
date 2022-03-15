@@ -1,11 +1,11 @@
-import updateWinReadyStatus from './updateWinReadyStatus.js'
-import addWinReadyPeersCards from './addWinReadyPeersCards.js'
-import toggleWinReadyPeers from './toggleWinReadyPeers.js'
+import updateDeclaredPlayers from './updateDeclaredPlayers.js'
+import addDeclaredPlayers from './addDeclaredPlayers.js'
+import toggleDeclaredPlayers from './toggleDeclaredPlayers.js'
 
-export default function makeDisplayDeclaredCards() {
+export default function makeDisplayDeclaredCards({ Card, LayedOffMelds }) {
   return function displayDeclaredCards(declaredPlayers) {
-    updateWinReadyStatus(declaredPlayers)
-    addWinReadyPeersCards(declaredPlayers)
-    toggleWinReadyPeers()
+    updateDeclaredPlayers(declaredPlayers)
+    addDeclaredPlayers({ Card, LayedOffMelds, declaredPlayers })
+    toggleDeclaredPlayers()
   }
 }

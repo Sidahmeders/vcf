@@ -1,10 +1,9 @@
-import { Card, LayedOffMelds } from '../components/index.js'
+export default function addDeclaredPlayers({ Card, LayedOffMelds, declaredPlayers }) {
+  const winReadyPeersContainer = document.getElementById('declared-players')
+  winReadyPeersContainer.innerHTML = ''
 
-export default function addWinReadyPeersCards(winReadyPlayers) {
-  const winReadyPeersContainer = document.getElementById('win-ready-peers')
-
-  for (let playerName in winReadyPlayers) {
-    const melds = winReadyPlayers[playerName]?.melds
+  for (let playerName in declaredPlayers) {
+    const melds = declaredPlayers[playerName]?.melds
     const playerMelds = Object.values({ ...melds.sequences, ...melds.sets })
     const peerMeldElement = CreatePeerMeldContainerEl(playerName)
 
@@ -26,6 +25,6 @@ export default function addWinReadyPeersCards(winReadyPlayers) {
 function CreatePeerMeldContainerEl(playerName) {
   const peerMeldContainerElement = document.createElement('div')
   peerMeldContainerElement.id = playerName
-  peerMeldContainerElement.className = 'peer-Meld-container hidden'
+  peerMeldContainerElement.className = 'peer-meld-container hidden'
   return peerMeldContainerElement
 }

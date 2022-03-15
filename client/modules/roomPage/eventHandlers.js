@@ -1,6 +1,6 @@
 import state from '../state/index.js'
 import { roomEvents } from '../constant/events.js'
-import { Card, PeerStatus } from './components/index.js'
+import { Card, PeerStatus, LayedOffMelds } from './components/index.js'
 import { getPlayerCards, updateMeldStatus, getRoomInfo } from './utils/index.js'
 
 import makeFetchRoomData from './fetchRoomData.js'
@@ -25,7 +25,7 @@ const addDroppedCards = makeAddDroppedCards({ Card, roomEvents, socket, getRoomI
 const updateOnlineStatus = makeUpdateOnlineStatus()
 const updateTurnToPickStatus = makeUpdateTurnToPickStatus()
 const updatePlayerCards = makeUpdatePlayerCards({ getPlayerCards })
-const displayDeclaredCards = makeDisplayDeclaredCards()
+const displayDeclaredCards = makeDisplayDeclaredCards({ Card, LayedOffMelds })
 
 export {
   fetchRoomData,

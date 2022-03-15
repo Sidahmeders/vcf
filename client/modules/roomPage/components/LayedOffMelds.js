@@ -1,7 +1,7 @@
 export default function createLayedOffMelds({ roomEvents, socket, getRoomInfo, state }) {
   return function layedOffMelds() {
     const handMeldElement = document.createElement('div')
-    handMeldElement.className = 'valid-hand-Meld'
+    handMeldElement.className = 'valid-hand-meld'
 
     handMeldElement.addEventListener('dragover', dragOver)
     handMeldElement.addEventListener('dragleave', dragLeave)

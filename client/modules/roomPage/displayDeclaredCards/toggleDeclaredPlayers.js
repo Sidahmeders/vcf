@@ -1,4 +1,4 @@
-export default function toggleWinReadyPeers() {
+export default function toggleDeclaredPlayers() {
   setTimeout(() => {
     const peersStatusContainer = document.getElementById('peers-status-container').childNodes
     for (let peerNode of peersStatusContainer) peerNode.onclick = clickHanlder
@@ -7,10 +7,10 @@ export default function toggleWinReadyPeers() {
 
 function clickHanlder() {
   const peersStatusContainer = document.getElementById('peers-status-container').childNodes
-  const winReadyPeers = document.getElementById('win-ready-peers').childNodes
+  const declaredPlayers = document.getElementById('declared-players').childNodes
   const peerName = this.id
 
-  winReadyPeers.forEach((node) => {
+  declaredPlayers.forEach((node) => {
     if (node.id === peerName) node.classList.remove('hidden')
     else node.classList.add('hidden')
   })
