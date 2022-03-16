@@ -1,0 +1,26 @@
+#declare-cards {
+  position: absolute;
+  left: 46%;
+  bottom: 1%;
+  min-width: 20vh;
+  background-color: orange;
+  color: white;
+  padding: 10px;
+  font-size: 28px;
+  text-transform: uppercase;
+  border: 2px solid #ffbb3e;
+  border-radius: 5px;
+  transition: 0.7s ease;
+}
+
+#declare-cards:hover {
+  border: 2px solid #0099cc;
+  background-color: #00aacc;
+}
+
+#declare-cards:disabled,
+#declare-cards[disabled] {
+  border: 2px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}

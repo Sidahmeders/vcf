@@ -1,5 +1,5 @@
 import '../peers-call/index.js'
-import { DropBox, DeckHidden, PlayerStatus, DeclareCards } from './components/index.js'
+import { DropBox, DeckHidden, PlayerStatus, DeclareCardsBtn } from './components/index.js'
 import { roomListeners } from '../constant/listeners.js'
 import { errorNotification } from '../notifications/index.js'
 import {
@@ -17,14 +17,16 @@ import {
 
 document.addEventListener('DOMContentLoaded', fetchRoomData)
 
-DeclareCards()
+DeclareCardsBtn()
 DropBox()
 DeckHidden()
 
 document.addEventListener('state-change', (event) => {
   const { payload } = event.detail
-  if (payload.type === 'player-points') PlayerStatus(payload.data)
-  else console.warn('state has been changed...')
+  if (payload.type === 'player-points') {
+    PlayerStatus(payload.data)
+    DeclareCardsBtn(payload.data)
+  } else console.warn('state has been changed...')
 })
 
 socket.on(roomListeners.rooms_error, errorNotification)
