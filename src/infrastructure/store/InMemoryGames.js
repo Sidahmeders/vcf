@@ -7,12 +7,12 @@ module.exports = {
       cardsDeck: [],
       droppedCards: [],
       declaredPlayers: {
-        amine: { cards: [], isOnline: false, turnToPick: false },
+        amine: { cards: [] },
       },
       players: {
-        yousef: { cards: [], isOnline: false, turnToPick: false },
-        amine: { cards: [], isOnline: false, turnToPick: false },
-        yassine: { cards: [], isOnline: false, turnToPick: false },
+        yousef: { cards: [], isOnline: false, turnToPick: false, maxCards: 15, minCards: 14, isDeclared: false },
+        amine: { cards: [], isOnline: false, turnToPick: false, maxCards: 15, minCards: 14, isDeclared: false },
+        yassine: { cards: [], isOnline: false, turnToPick: false, maxCards: 15, minCards: 14, isDeclared: false },
       },
     },
   },
