@@ -6,8 +6,6 @@ module.exports = ({ InMemoryGames }) => {
     const playerCards = player?.cards
     const maxCards = player?.maxCards
 
-    console.log(maxCards)
-
     if (playerCards.length >= maxCards) throw Error('please drop a card before you can pick again')
     const pickedCard = cardsDeck.pop()
     if (!pickedCard) throw Error('the cards deck is empty')

@@ -6,8 +6,6 @@ module.exports = ({ wsEventEmitter, events, updateDeclaredCards, getPlayerRoomDa
       updateDeclaredCards(roomName, username, meldsMap)
 
       const { declaredPlayers, playerCards } = getPlayerRoomData(roomName, username)
-      console.log(declaredPlayers, playerCards, 'IN DECLARE CARDS>>>')
-
       wsEventEmitter.emit(events.cards_updated, playerCards)
       wsEventEmitter.broadcastToRoom(roomName, events.cards_declared, declaredPlayers)
     } catch (err) {

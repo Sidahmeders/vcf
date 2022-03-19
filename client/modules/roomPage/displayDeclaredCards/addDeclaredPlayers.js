@@ -2,24 +2,20 @@ export default function addDeclaredPlayers({ Card, LayedOffMelds, declaredPlayer
   const winReadyPeersContainer = document.getElementById('declared-players')
   winReadyPeersContainer.innerHTML = ''
 
-  for (let playerName in declaredPlayers) {
-    const melds = declaredPlayers[playerName]?.melds
-    const playerMelds = Object.values({ ...melds.sequences, ...melds.sets })
+  Object.entries(declaredPlayers).forEach(([playerName, playerHand]) => {
     const peerMeldElement = CreatePeerMeldContainerEl(playerName)
-
-    for (let meld of playerMelds) {
-      const validHandMeldElement = LayedOffMelds()
-
-      meld.forEach((card) => {
-        const cardElement = Card(card, false)
-        validHandMeldElement.append(cardElement)
+    Object.entries(playerHand?.melds).forEach(([meldType, meld]) => {
+      Object.entries(meld).forEach(([meldIndex, meldCards]) => {
+        const validHandMeldElement = LayedOffMelds(meldType, meldIndex)
+        meldCards.forEach((card) => {
+          const cardElement = Card(card, false)
+          validHandMeldElement.append(cardElement)
+        })
+        peerMeldElement.appendChild(validHandMeldElement)
       })
-
-      peerMeldElement.appendChild(validHandMeldElement)
-    }
-
-    winReadyPeersContainer.appendChild(peerMeldElement)
-  }
+      winReadyPeersContainer.appendChild(peerMeldElement)
+    })
+  })
 }
 
 function CreatePeerMeldContainerEl(playerName) {

@@ -1,7 +1,9 @@
 export default function createLayedOffMelds({ roomEvents, socket, getRoomInfo, state }) {
-  return function layedOffMelds() {
+  return function layedOffMelds(meldType, meldIndex) {
     const handMeldElement = document.createElement('div')
     handMeldElement.className = 'valid-hand-meld'
+    handMeldElement.setAttribute('meld-type', meldType)
+    handMeldElement.setAttribute('meld-index', meldIndex)
 
     handMeldElement.addEventListener('dragover', dragOver)
     handMeldElement.addEventListener('dragleave', dragLeave)
@@ -18,15 +20,23 @@ export default function createLayedOffMelds({ roomEvents, socket, getRoomInfo, s
 
     function dragDrop() {
       this.classList.remove('hovered')
-      console.log('DRAG DROP')
-      // TODO: HANDLE EVENT PUSH
-      const { roomName, username } = getRoomInfo()
+      const { roomName } = getRoomInfo()
+      const playerName = this.parentNode?.id
+      const meldType = this.getAttribute('meld-type')
+      const meldIndex = this.getAttribute('meld-index')
       const { cardId } = state.roomState
-      const payload = { roomName, username, cardId }
-      socket.emit('Some-Random-Event', payload)
-      // ----------------------
+
+      const meldInfo = { meldType, meldIndex, cardToAdd: cardId }
+      const payload = { roomName, playerName, meldInfo }
+
+      socket.emit(roomEvents.cards_layoff, payload)
     }
 
     return handMeldElement
   }
 }
+
+/**
+ * event => listner => event =>
+ * cards:layoff -> cards:laidOff => cards:layoff
+ */

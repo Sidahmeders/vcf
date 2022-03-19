@@ -1,15 +1,15 @@
-export default class MeldValidator {
-  #playerMelds
+class MeldValidator {
+  #playerMelds = { sets: {}, sequences: {} }
   #totalPoints = 0
 
-  constructor(playerMelds = { sets: {}, sequences: {} }) {
+  constructor(playerMelds) {
     if (!playerMelds?.sets || !playerMelds?.sequences) throw Error('playerMelds param expected "sets" & "sequences" objects, but got undefined')
     this.#playerMelds = playerMelds
   }
 
   validatePlayerCards(playerCards) {
-    this.#validate(playerCards, MeldValidator.SEQUENCES)
-    this.#validate(playerCards, MeldValidator.SETS)
+    this.validate(playerCards, MeldValidator.SEQUENCES)
+    this.validate(playerCards, MeldValidator.SETS)
 
     return this.#playerMelds
   }
@@ -26,7 +26,7 @@ export default class MeldValidator {
     return this.#totalPoints
   }
 
-  #validate(cards, MeldType) {
+  validate(cards, MeldType) {
     const visitedCards = new Set()
     let prevRank, prevSuit
     let startIndex = 0
@@ -108,3 +108,5 @@ export default class MeldValidator {
 
 MeldValidator.SETS = Symbol('3 or more cards of the same rank')
 MeldValidator.SEQUENCES = Symbol(' 3 or more consecutive cards of the same suit')
+
+module.exports = MeldValidator

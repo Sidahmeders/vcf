@@ -1,6 +1,6 @@
 const { InMemoryGames, roomsDB } = require('../../infrastructure/store')
 const { Player } = require('../valueObjects')
-const { createDeck, shuffleDeck, validateScore, authenticateMelds } = require('../shared')
+const { createDeck, shuffleDeck, validateScore, authenticateMelds, MeldsValidator } = require('../shared')
 
 const makeGetPlayerRoomData = require('./get-player-room-data')
 const makeUpdateInMemoryRoom = require('./update-inMemory-room')
@@ -12,6 +12,7 @@ const makeUpdateOnlinePlayers = require('./update-online-players')
 const makeGetPlayersStatus = require('./get-players-status')
 const makeUpdateDroppedCard = require('./update-dropped-card')
 const makeUpdateDeclaredCards = require('./update-declared-cards')
+const makeUpdateLayoffCards = require('./update-layoff-cards')
 
 const getPlayerRoomData = makeGetPlayerRoomData({ InMemoryGames, Player })
 const updateInMemoryRoom = makeUpdateInMemoryRoom({ roomsDB, InMemoryGames, Player, createDeck, shuffleDeck })
@@ -22,7 +23,8 @@ const checkPlayersTurn = makeCheckPlayersTurn({ InMemoryGames })
 const { addOnlinePlayer, removeOnlinePlayer } = makeUpdateOnlinePlayers({ InMemoryGames })
 const getPlayersStatus = makeGetPlayersStatus({ InMemoryGames })
 const updateDroppedCard = makeUpdateDroppedCard({ InMemoryGames })
-const updateDeclaredCards = makeUpdateDeclaredCards({ InMemoryGames, validateScore, authenticateMelds })
+const updateDeclaredCards = makeUpdateDeclaredCards({ InMemoryGames, MeldsValidator, authenticateMelds })
+const updateLayoffCards = makeUpdateLayoffCards({ InMemoryGames, MeldsValidator })
 
 module.exports = {
   getPlayerRoomData,
@@ -36,4 +38,5 @@ module.exports = {
   getPlayersStatus,
   updateDroppedCard,
   updateDeclaredCards,
+  updateLayoffCards,
 }

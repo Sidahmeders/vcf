@@ -10,6 +10,7 @@ export const roomListeners = {
   cards_swapped: 'cards:swapped',
   cards_declared: 'cards:declared',
   cards_updated: 'cards:updated',
+  cards_laidoff: 'cards:laidoff', // TODO:
 }
 
 export const webrtcListeners = {

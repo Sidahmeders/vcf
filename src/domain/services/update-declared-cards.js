@@ -1,4 +1,6 @@
-module.exports = ({ InMemoryGames, validateScore, authenticateMelds }) => {
+const { MeldsValidator } = require('../shared')
+
+module.exports = ({ InMemoryGames, authenticateMelds }) => {
   return (roomName, username, playerMelds) => {
     const { sets, sequences } = playerMelds
     const targetRoom = InMemoryGames.getRoomData(roomName)
@@ -7,8 +9,9 @@ module.exports = ({ InMemoryGames, validateScore, authenticateMelds }) => {
 
     const playerCards = player?.cards
     const isDeclared = player?.isDeclared
+
     const validPlayerCards = extractMeldCards({ ...sets, ...sequences })
-    const isValidScore = validateScore({ ...sets, ...sequences })
+    const isValidScore = new MeldsValidator(playerMelds).calculatePoints() >= 10
     const isValidMelds = authenticateMelds(playerCards, validPlayerCards)
 
     if (isDeclared) throw Error("you can't declare twice")
