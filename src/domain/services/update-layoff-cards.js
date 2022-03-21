@@ -7,10 +7,19 @@ module.exports = ({ InMemoryGames }) => {
     const declaredPlayers = targetRoom?.declaredPlayers
     const playerMelds = declaredPlayers[playerName]?.melds
 
-    // const isValidCard = new MeldsValidator(playerMelds).validatePlayerCards()
+    const selectedMeld = playerMelds[meldType][meldIndex]
+    const prependedMeld = [cardToAdd, ...selectedMeld]
+    const appendedMeld = [...selectedMeld, cardToAdd]
 
-    // if (isValidCard) {
-    //   playerMelds[meldType][meldIndex].push(cardToAdd)
-    // }
+    const prePlayerMeld = new MeldsValidator().validatePlayerCards(prependedMeld)
+    const postPlayerMeld = new MeldsValidator().validatePlayerCards(appendedMeld)
+
+    const validatedPlayerMeld = []
+    Object.values(prePlayerMeld[meldType]).forEach((meld) => validatedPlayerMeld.push(meld))
+    Object.values(postPlayerMeld[meldType]).forEach((meld) => validatedPlayerMeld.push(meld))
+
+    const isValidCard = validatedPlayerMeld.some((updatedMeld) => updatedMeld.length > selectedMeld.length)
+
+    if (isValidCard) playerMelds[meldType][meldIndex].push(cardToAdd)
   }
 }

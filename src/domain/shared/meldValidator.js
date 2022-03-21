@@ -1,15 +1,15 @@
 class MeldValidator {
-  #playerMelds = { sets: {}, sequences: {} }
+  #playerMelds
   #totalPoints = 0
 
-  constructor(playerMelds) {
+  constructor(playerMelds = { sets: {}, sequences: {} }) {
     if (!playerMelds?.sets || !playerMelds?.sequences) throw Error('playerMelds param expected "sets" & "sequences" objects, but got undefined')
     this.#playerMelds = playerMelds
   }
 
   validatePlayerCards(playerCards) {
-    this.validate(playerCards, MeldValidator.SEQUENCES)
-    this.validate(playerCards, MeldValidator.SETS)
+    this.#validate(playerCards, MeldValidator.SEQUENCES)
+    this.#validate(playerCards, MeldValidator.SETS)
 
     return this.#playerMelds
   }
@@ -26,7 +26,7 @@ class MeldValidator {
     return this.#totalPoints
   }
 
-  validate(cards, MeldType) {
+  #validate(cards, MeldType) {
     const visitedCards = new Set()
     let prevRank, prevSuit
     let startIndex = 0
