@@ -20,7 +20,7 @@ export default function addDeclaredPlayers({ Card, LayedOffMelds, declaredPlayer
 
 function CreatePeerMeldContainerEl(playerName) {
   const peerMeldContainerElement = document.createElement('div')
-  peerMeldContainerElement.id = playerName
+  peerMeldContainerElement.id = playerName + '+laidoff_meld'
   peerMeldContainerElement.className = 'peer-meld-container hidden'
   return peerMeldContainerElement
 }

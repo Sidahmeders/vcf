@@ -51,8 +51,7 @@ socket.on(roomListeners.peers_trunToPick, updateTurnToPickStatus)
 
 function updateLaidoffMeld(updatedMelds) {
   const { peerName, melds } = updatedMelds
-  const winReadyPeersContainer = document.getElementById('declared-players')
-  const peerMeldElement = winReadyPeersContainer.querySelector(`#${peerName}`) // FIXME:
+  const peerMeldElement = document.getElementById(peerName + '+laidoff_meld')
   peerMeldElement.innerHTML = ''
 
   Object.entries(melds).forEach(([meldType, meld]) => {

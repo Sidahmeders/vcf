@@ -21,7 +21,7 @@ export default function createLayedOffMelds({ roomEvents, socket, getRoomInfo, s
     function dragDrop() {
       this.classList.remove('hovered')
       const { roomName, username } = getRoomInfo()
-      const peerName = this.parentNode?.id
+      const peerName = this.parentNode?.id?.split('+')[0]
       const meldType = this.getAttribute('meld-type')
       const meldIndex = this.getAttribute('meld-index')
       const { cardId } = state.roomState

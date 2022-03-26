@@ -8,7 +8,7 @@ export default function toggleDeclaredPlayers() {
 function clickHanlder() {
   const peersStatusContainer = document.getElementById('peers-status-container').childNodes
   const declaredPlayers = document.getElementById('declared-players').childNodes
-  const peerName = this.id
+  const peerName = this.id + '+laidoff_meld'
 
   declaredPlayers.forEach((node) => {
     if (node.id === peerName) node.classList.remove('hidden')

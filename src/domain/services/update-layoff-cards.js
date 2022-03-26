@@ -30,6 +30,6 @@ module.exports = ({ InMemoryGames }) => {
     if (validatedPlayerMeld[0] === cardToAdd) selectedMeld.unshift(cardToAdd)
     else selectedMeld.push(cardToAdd)
 
-    player.cards = playerCards.filter((card) => card !== cardToAdd)
+    player.cards = playerCards.filter((card) => card !== cardToAdd) //FIXME: REPEATED...
   }
 }

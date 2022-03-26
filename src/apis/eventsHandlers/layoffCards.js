@@ -1,4 +1,4 @@
-module.exports = ({ wsEventEmitter, events, updateLayoffCards, dropCard, getPlayerRoomData }) => {
+module.exports = ({ wsEventEmitter, events, updateLayoffCards, getPlayerRoomData }) => {
   return (payload) => {
     try {
       const { roomName, username, peerName, meldInfo } = payload
