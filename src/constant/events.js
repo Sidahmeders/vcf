@@ -5,7 +5,7 @@ module.exports = {
   cardsSwapped: 'cards:swapped',
   cards_updated: 'cards:updated',
   cards_declared: 'cards:declared',
-  cards_laidoff: 'cards:laidoff', // TODO:
+  cards_laidoff: 'cards:laidoff',
   roomsJoined: 'rooms:joined',
   peersJoined: 'peers:joined',
   peersConnect: 'peers:connect',

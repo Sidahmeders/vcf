@@ -35,7 +35,7 @@ module.exports = (wsEventEmitter) => {
   const dropCards = makeDropCards({ wsEventEmitter, events, dropCard, getPlayerRoomData })
   const swapCards = makeSwapCards({ wsEventEmitter, events, updateDroppedCard, getPlayerRoomData })
   const declareCards = makeDeclareCards({ wsEventEmitter, events, updateDeclaredCards, getPlayerRoomData })
-  const layoffCards = makeLayoffCards({ wsEventEmitter, events, updateLayoffCards })
+  const layoffCards = makeLayoffCards({ wsEventEmitter, events, updateLayoffCards, dropCard, getPlayerRoomData })
 
   const { peerJoin, peerMessage } = makeWebrtcSignaling({ wsEventEmitter, events })
 

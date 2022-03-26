@@ -1,11 +1,15 @@
-module.exports = ({ wsEventEmitter, events, updateLayoffCards }) => {
+module.exports = ({ wsEventEmitter, events, updateLayoffCards, dropCard, getPlayerRoomData }) => {
   return (payload) => {
     try {
-      const { roomName, playerName, meldInfo } = payload
+      const { roomName, username, peerName, meldInfo } = payload
 
-      updateLayoffCards(roomName, playerName, meldInfo)
+      updateLayoffCards(roomName, username, peerName, meldInfo)
 
-      return undefined
+      const { playerCards, declaredPlayers } = getPlayerRoomData(roomName, username)
+      wsEventEmitter.emit(events.cardsDropped, playerCards)
+
+      const updatedMelds = { peerName, melds: declaredPlayers[peerName]?.melds }
+      wsEventEmitter.broadcastToRoom(roomName, events.cards_laidoff, updatedMelds)
     } catch (err) {
       wsEventEmitter.emit(events.roomsError, err.message)
       console.error(err)

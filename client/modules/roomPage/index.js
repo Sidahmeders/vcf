@@ -15,6 +15,10 @@ import {
   displayDeclaredCards,
 } from './eventHandlers.js'
 
+//////////////////
+import { Card, LayedOffMelds } from './components/index.js'
+/////////////////
+
 document.addEventListener('DOMContentLoaded', fetchRoomData)
 
 DeclareCardsBtn()
@@ -39,7 +43,26 @@ socket.on(roomListeners.cards_swapped, updateSwappedCards)
 
 socket.on(roomListeners.cards_updated, updatePlayerCards)
 socket.on(roomListeners.cards_declared, displayDeclaredCards)
+socket.on(roomListeners.cards_laidoff, updateLaidoffMeld)
 
 socket.on(roomListeners.peers_disconnect, updateOnlineStatus)
 socket.on(roomListeners.peers_connect, updateOnlineStatus)
 socket.on(roomListeners.peers_trunToPick, updateTurnToPickStatus)
+
+function updateLaidoffMeld(updatedMelds) {
+  const { peerName, melds } = updatedMelds
+  const winReadyPeersContainer = document.getElementById('declared-players')
+  const peerMeldElement = winReadyPeersContainer.querySelector(`#${peerName}`) // FIXME:
+  peerMeldElement.innerHTML = ''
+
+  Object.entries(melds).forEach(([meldType, meld]) => {
+    Object.entries(meld).forEach(([meldIndex, meldCards]) => {
+      const validHandMeldElement = LayedOffMelds(meldType, meldIndex)
+      meldCards.forEach((card) => {
+        const cardElement = Card(card, false)
+        validHandMeldElement.append(cardElement)
+      })
+      peerMeldElement.appendChild(validHandMeldElement)
+    })
+  })
+}

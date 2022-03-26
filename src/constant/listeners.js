@@ -7,6 +7,6 @@ module.exports = {
   cards_drop: 'cards:drop',
   cards_swap: 'cards:swap',
   cards_declare: 'cards:declare',
-  cards_layoff: 'cards:layoff', // TODO:
+  cards_layoff: 'cards:layoff',
   disconnect: 'disconnect',
 }
