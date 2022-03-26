@@ -13,6 +13,7 @@ import makeUpdateOnlineStatus from './updateOnlineStatus.js'
 import makeUpdateTurnToPickStatus from './updateTurnToPickStatus.js'
 import makeUpdatePlayerCards from './updatePlayerCards.js'
 import makeDisplayDeclaredCards from './displayDeclaredCards/index.js'
+import makeUpdateLaidoffMeld from './updateLaidoffMeld.js'
 
 const { roomState } = state
 
@@ -26,6 +27,7 @@ const updateOnlineStatus = makeUpdateOnlineStatus()
 const updateTurnToPickStatus = makeUpdateTurnToPickStatus()
 const updatePlayerCards = makeUpdatePlayerCards({ getPlayerCards })
 const displayDeclaredCards = makeDisplayDeclaredCards({ Card, LayedOffMelds })
+const updateLaidoffMeld = makeUpdateLaidoffMeld({ LayedOffMelds, Card })
 
 export {
   fetchRoomData,
@@ -38,4 +40,5 @@ export {
   updateTurnToPickStatus,
   updatePlayerCards,
   displayDeclaredCards,
+  updateLaidoffMeld,
 }

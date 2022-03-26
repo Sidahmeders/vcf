@@ -13,11 +13,8 @@ import {
   updateTurnToPickStatus,
   updatePlayerCards,
   displayDeclaredCards,
+  updateLaidoffMeld,
 } from './eventHandlers.js'
-
-//////////////////
-import { Card, LayedOffMelds } from './components/index.js'
-/////////////////
 
 document.addEventListener('DOMContentLoaded', fetchRoomData)
 
@@ -48,20 +45,3 @@ socket.on(roomListeners.cards_laidoff, updateLaidoffMeld)
 socket.on(roomListeners.peers_disconnect, updateOnlineStatus)
 socket.on(roomListeners.peers_connect, updateOnlineStatus)
 socket.on(roomListeners.peers_trunToPick, updateTurnToPickStatus)
-
-function updateLaidoffMeld(updatedMelds) {
-  const { peerName, melds } = updatedMelds
-  const peerMeldElement = document.getElementById(peerName + '+laidoff_meld')
-  peerMeldElement.innerHTML = ''
-
-  Object.entries(melds).forEach(([meldType, meld]) => {
-    Object.entries(meld).forEach(([meldIndex, meldCards]) => {
-      const validHandMeldElement = LayedOffMelds(meldType, meldIndex)
-      meldCards.forEach((card) => {
-        const cardElement = Card(card, false)
-        validHandMeldElement.append(cardElement)
-      })
-      peerMeldElement.appendChild(validHandMeldElement)
-    })
-  })
-}
