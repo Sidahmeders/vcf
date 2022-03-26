@@ -19,8 +19,8 @@ class State {
     return State.instance
   }
 
-  setPlayerMeldsStatus({ totalPoints, meldsMap }) {
-    this.playerMeldsStatus.validMelds = meldsMap
+  setPlayerMeldsStatus({ totalPoints, validMelds }) {
+    this.playerMeldsStatus.validMelds = validMelds
     this.playerMeldsStatus.totalPoints = totalPoints
     this.publishStateChange({ type: 'player-points', data: totalPoints })
   }

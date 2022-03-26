@@ -1,20 +1,13 @@
 export default function makeUpdateMeldsStatus({ getPlayerCards, MeldValidator, state }) {
-  const cardsFlag = {
-    addValidFlag: (cardElement, color) => {
-      cardElement.innerHTML = `<span class="valid-flag" style="background:${color};"></span>`
-    },
-    removeValidFlag: (cardElement) => (cardElement.innerHTML = ''),
-  }
-
   return async function updateMeldsStatus() {
     resetPlayerCardsStatus()
     const playerCards = getPlayerCards()
     const meldValidator = new MeldValidator()
-    const meldsMap = meldValidator.validatePlayerCards(playerCards)
+    const validMelds = meldValidator.validatePlayerCards(playerCards)
     const totalPoints = meldValidator.calculatePoints()
 
-    state.setPlayerMeldsStatus({ totalPoints, meldsMap })
-    setPlayerCardsStatus(meldsMap)
+    state.setPlayerMeldsStatus({ totalPoints, validMelds })
+    setPlayerCardsStatus(validMelds)
   }
 
   function resetPlayerCardsStatus() {
@@ -40,4 +33,11 @@ export default function makeUpdateMeldsStatus({ getPlayerCards, MeldValidator, s
       }
     }
   }
+}
+
+const cardsFlag = {
+  addValidFlag: (cardElement, color) => {
+    cardElement.innerHTML = `<span class="valid-flag" style="background:${color};"></span>`
+  },
+  removeValidFlag: (cardElement) => (cardElement.innerHTML = ''),
 }
