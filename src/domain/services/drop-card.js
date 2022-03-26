@@ -9,6 +9,6 @@ module.exports = ({ InMemoryGames }) => {
     if (playerCards.length <= minCards) throw Error('make sure you have picked a card before you can drop')
 
     targetRoom.droppedCards.push(cardToDrop)
-    players[username].cards = playerCards.filter((card) => card !== cardToDrop) //FIXME: REPEATED...
+    players[username].cards = playerCards.filter((card) => card !== cardToDrop)
   }
 }

@@ -10,9 +10,9 @@ module.exports = {
         amine: { melds: [] },
       },
       players: {
-        yousef: { cards: [], isOnline: false, turnToPick: false, maxCards: 15, minCards: 14, isDeclared: false },
-        amine: { cards: [], isOnline: false, turnToPick: false, maxCards: 15, minCards: 14, isDeclared: false },
-        yassine: { cards: [], isOnline: false, turnToPick: false, maxCards: 15, minCards: 14, isDeclared: false },
+        yousef: { cards: [], isOnline: false, turnToPick: false, maxCards: 15, minCards: 14, isDeclared: false, score: 0 },
+        amine: { cards: [], isOnline: false, turnToPick: false, maxCards: 15, minCards: 14, isDeclared: false, score: 0 },
+        yassine: { cards: [], isOnline: false, turnToPick: false, maxCards: 15, minCards: 14, isDeclared: false, score: 0 },
       },
     },
   },

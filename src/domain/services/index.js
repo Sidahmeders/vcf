@@ -1,6 +1,6 @@
 const { InMemoryGames, roomsDB } = require('../../infrastructure/store')
 const { Player } = require('../valueObjects')
-const { createDeck, shuffleDeck, validateScore, authenticateMelds, MeldsValidator } = require('../shared')
+const { createDeck, shuffleDeck, authenticateMelds, MeldsValidator } = require('../shared')
 
 const makeGetPlayerRoomData = require('./get-player-room-data')
 const makeUpdateInMemoryRoom = require('./update-inMemory-room')
